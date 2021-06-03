@@ -4,7 +4,7 @@ const dotenv = require('dotenv'); // Extension um .env's zu handlen
 const Discord = require('discord.js'); // Standard Discord Bot Commands
 const { prefix, token } = require('./config.json'); // .json mit Config Optionen wie dem verwendeten Prefix
 
-const client = new Discord.Client();
+const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 // Initializierung für die Datenbank
 const { Users, ItemList } = require('./dbObjects');
@@ -63,17 +63,17 @@ client.on('message', async message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/); //Entferne das Prefix vom Command
 	const commandName = args.shift().toLowerCase(); //Ändere die Ausgabe in LowerCase
     currency.add(message.author.id, 1);
-
+	
 	if (!client.commands.has(commandName)) return; //Breche ab wenn das Command in der Collection nicht existiert
 
     const command = client.commands.get(commandName); //Suche das richtige Command aus der Collection
-
 	try {
-		command.execute(message, args); //Übergib message und args and Command
+		command.execute(message, args); //Übergib message und args an Command
 	} catch (error) {
 		console.error(error); //Errorausagbe wenn Command nicht ausgeführt werden kann
 		message.reply('there was an error trying to execute that command!');
 	}
+	
 });
 
 
