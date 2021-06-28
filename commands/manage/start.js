@@ -1,59 +1,90 @@
+const roles = require('../../gameLogic/RoleClaim');
+const gameChannels = require('../../gameLogic/GameChannels');
 
-const Discord = require('discord.js'); // Standard Discord Bot Commands
-
-const role1emoji = '💩';
-const role2emoji = '🤓';
-const role3emoji = '🥳';
+const impostor = '😄';
 
 module.exports = {
 	name: 'start',
 	description: 'Starts game.',
 	async execute(message) {
+        if(message.channel.name !== gameChannels.channelFactory.lobby.name)
+        {
+          return message.channel.send("You cant start the game from this channel!");
+        }
+
         let emb = await message.channel.send({embed: startEmbed});
-        emb.react(role1emoji);
-        emb.react(role2emoji);
-        emb.react(role3emoji);
+        for(let i = 0; i < roles.allGameRoles.length;i++)
+        {
+          await emb.react(roles.allGameRoles[i].emoji);
+        }
+       // message.client.
     },
+
+    checkIfGameCanStart : function(members)
+    {
+      let memberCount = 0;
+    
+      for(let i = 0; i < roles.allGameRoles.length;i++)
+      {
+        for(const [memberId, member] of members.entries())
+         {
+          if(member.roles.cache.has(roles.allGameRoles[i].id))
+          {
+            memberCount++;
+            break;
+          }
+        }
+      }
+    
+      if(memberCount===roles.allGameRoles.length)
+      {
+        // GAME CAN START!!!!!
+        // Here follows the logic of the game start ->
+        // assign all roles necessary for the players to go to the crashside!
+        // save the storyProgress in the DB
+      }
+    }
 };
 
+
+
 const startEmbed = {
-    "title": "Welcome to our game!",
-    "description": "Dieses Spiel soll das [__Social Gaming__](http://social-gaming-days.de/) untersützen und euch als Gruppe Spaß machen!\n\n",
-    "url": "http://social-gaming-days.de/",
+    "title": "Wer seid ihr?",
+    "description": "Bevor ihr mit der Sotry anfangen könnt, muss jeder Spieler eine Rolle auswählen, die er/sie/es im Verlauf des Spiels weiterhin benutzen wird.",
     "color": 123335,
-    "timestamp": "2021-05-27T11:07:21.270Z",
-    "footer": {
-      "text": "footer text"
-    },
-    "thumbnail": {
-      "url": "https://www.gameswirtschaft.de/wp-content/uploads/2020/05/Social-Gaming-Days-2020-Gamescom.jpg"
-    },
     "fields": [
       {
-        "name": "Wie beginnen wir das Spiel?",
-        "value": "Bevor ihr mit der Sotry anfangen könnt, muss jeder Spieler eine Rolle auswählen, die er/sie/es im Verlauf des Spiels weiterhin benutzen wird."
+        "name": '\u200b',
+        "value": '\u200b',
+        "inline": false,
       },
       {
-        "name": role1emoji,
-        "value": "Every walk to the toilet means pain"
+        "name": roles.allGameRoles[0].emoji + "  " + "Informatik-Student",
+        "value": "Fähigkeit: xxxx"
       },
       {
-        "name":role2emoji ,
-        "value": "I love books almost as much as dicks"
+        "name": roles.allGameRoles[1].emoji + "  " + "Ingenieur-Student",
+        "value": "Fähigkeit: xxxx"
       },
       {
-        "name":role3emoji ,
-        "value": "I love ecstasy almost as much as dicks"
+        "name": roles.allGameRoles[2].emoji + "  " + "Medizin-Student",
+        "value": "Fähigkeit: xxxx"
       },
       {
-        "name": "<:thonkang:219069250692841473>",
-        "value": "these last two",
-        "inline": true
+        "name": roles.allGameRoles[3].emoji + "  " + "Medizin-Student",
+        "value": "Fähigkeit: xxxx"
       },
       {
-        "name": "<:thonkang:219069250692841473>",
-        "value": "are inline fields",
-        "inline": true
+        "name": roles.allGameRoles[4].emoji + "  " + "Sport-Student",
+        "value": "Fähigkeit: xxxx"
+      },
+      {
+        "name": roles.allGameRoles[5].emoji + "  " + "Jura-Student",
+        "value": "Fähigkeit: xxxx"
       }
     ]
   };
+
+
+
+
