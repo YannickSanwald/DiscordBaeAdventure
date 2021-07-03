@@ -42,6 +42,57 @@ module.exports = {
             {
                 console.log(`Used ${this.name}`);
             }
+        },
+        cookies: {
+            name: 'cookies',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            }
+        },
+        bread: {
+            name: 'bread',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            }
+        },
+        herbs: {
+            name: 'herbs',
+            description: 'Some herbs. Not tasty to eat like that, make a paste by cooking it!\nEnergy -10 on use',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            },
+            Cook: function()
+            {
+                console.log(`Cooked ${this.name}`);
+            }
+        },
+        cookedHerbs:
+        {
+            name: 'herbal paste',
+            description: 'Some cooked herbs. Has great healing effects and is good for the skin!\nEnergy +20 on use',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            }
+        },
+        oats: {
+            name: 'oats',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            },
+        },
+        cookedOats:
+        {
+            name: 'oatmeal',
+            description: 'Some cooked oats. Great for breakfast, keeps you full!\nEnergy +20 on use',
+            Execute: function()
+            {
+                console.log(`Used ${this.name}`);
+            }
         }
     },
 
@@ -53,6 +104,12 @@ module.exports = {
             this.itemFactory.cookedFish,
             this.itemFactory.berries,
             this.itemFactory.wood,
+            this.itemFactory.cookies,
+            this.itemFactory.bread,
+            this.itemFactory.herbs,
+            this.itemFactory.cookedHerbs,
+            this.itemFactory.oats,
+            this.itemFactory.cookedOats,
         ]
     },
 
@@ -60,6 +117,8 @@ module.exports = {
     {
         return [
             this.itemFactory.fish,
+            this.itemFactory.herbs,
+            this.itemFactory.oats,
         ]
     },
 

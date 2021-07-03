@@ -1,3 +1,5 @@
+const gameChannels = require('./GameChannels');
+
 module.exports = {
     progressStates : [
         {
@@ -11,6 +13,54 @@ module.exports = {
         {
             name: "MadeFire",
             currentState: false,
+        },
+        {
+            name: "MadeBed",
+            currentState: false,
+        },
+        {
+            name: "SearchedBus",
+            currentState: false,
+        },
+        {
+            name: "FirstNightOver",
+            currentState: false,
+        },
+        {
+            name: "ForestPathDone",
+            currentState: false,
+        },
+        {
+            name: "MetGandalf",
+            currentState: false,
+        },
+        {
+            name: "MetStonedGroup",
+            currentState: false,
+        },
+        {
+            name: "FinishedBridgePuzzle",
+            currentState: false,
+        },
+        {
+            name: "AfterHill",
+            currentState: false,
+        },
+        {
+            name: "OpenedSafe",
+            currentState: false,
+        },
+        {
+            name: "AfterRuin",
+            currentState: false,
+        },
+        {
+            name: "AfterQuiz",
+            currentState: false,
+        },
+        {
+            name: "GameFinished",
+            currentState: false,
         }
     ],
 
@@ -23,5 +73,6 @@ module.exports = {
                 return this.progressStates[i];
             }
         }
-    }
+    },
+
 }

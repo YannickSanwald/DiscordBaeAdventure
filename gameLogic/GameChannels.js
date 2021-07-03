@@ -40,6 +40,34 @@ const cabinPin = {
     "fields": []
 }
 
+const lakePin = {
+    "title": "Welcome to the sea-side",
+    "description": "Hier steht die Message für den Lake",
+    "color": 123335,
+    "fields": []
+};
+
+const hillPin = {
+    "title": "Crashed in a forest...somewhere",
+    "description": "Hier steht die Message für den Hill",
+    "color": 123335,
+    "fields": [{}]
+};
+
+const ruinPin = {
+    "title": "Crashed in a forest...somewhere",
+    "description": "Hier steht die Message für die Ruine",
+    "color": 123335,
+    "fields": []
+}
+
+const mountainPin = {
+    "title": "On the mountain",
+    "description": "Hier steht die Message für den Mountain",
+    "color": 123335,
+    "fields": []
+}
+
 module.exports = {
     getChannelEmbedPin : function(channelId)
     {
@@ -90,6 +118,30 @@ module.exports = {
             id: '858619914897850388',
             name: 'cabin',
             pin: cabinPin,
+        },
+        lake:
+        {
+            id: '860413505182498866',
+            name: 'lake',
+            pin: lakePin,
+        },
+        hill:
+        {
+            id: '860413573679284224',
+            name: 'hill',
+            pin: hillPin,
+        },
+        ruin:
+        {
+            id: '860413684274429962',
+            name: 'ruin',
+            pin:  ruinPin,
+        },
+        mountain:
+        {
+            id: '860413774027816960',
+            name: 'mountain',
+            pin: mountainPin,
         }
     },
 
@@ -102,6 +154,10 @@ module.exports = {
             this.channelFactory.forest,
             this.channelFactory.clearing,
             this.channelFactory.cabin,
+            this.channelFactory.lake,
+            this.channelFactory.hill,
+            this.channelFactory.ruin,
+            this.channelFactory.mountain
         ]   
     }
 };

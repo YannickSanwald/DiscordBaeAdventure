@@ -34,9 +34,54 @@ module.exports = {
 
     allFunctionalityRoles : [
         {
-            id: '',
+            id: '860447864336678923',
             name: 'Player',
             emoji: 'NONE',
+        },
+        {
+            id: '860448361806954507',
+            name : 'Crash', 
+            emoji: '💥',
+        },
+        {
+            id: '860448853475721236',
+            name: 'Camp',
+            emoji: '🏕️',
+        },
+        {
+            id: '860448904477540353',
+            name: 'Forest',
+            emoji: '🌲',
+        },
+        {
+            id: '860448941749043220',
+            name: 'Clearing',
+            emoji: '🔆',
+        },
+        {
+            id: '860449041350393866',
+            name: 'Cabin',
+            emoji: '🏚️',
+        },
+        {
+            id: '860449151165923358',
+            name : 'Lake', 
+            emoji: '🌊',
+        },
+        {
+            id: '860449187522150410',
+            name: 'Hill',
+            emoji: '⛰️',
+        },
+        {
+            id: '860449273152667678',
+            name: 'Ruin',
+            emoji: '⚒️',
+        },
+        {
+            id: '860449335685939201',
+            name: 'Mountain',
+            emoji: '🏔️',
         }
     ],
 

@@ -1,5 +1,6 @@
 const gameItems = require('../../gameLogic/GameItem.js')
 const gameInventory = require('../../gameLogic/GameInventory.js');
+const { itemFactory } = require('../../gameLogic/GameItem.js');
 
 module.exports = {
 	name: 'cook',
@@ -22,8 +23,9 @@ module.exports = {
                 if(gameInventory.hasItems(allItems[i]))
                 {
                     gameInventory.removeItem(allItems[i]);
+                    const cookedItem = this.cookingFactory(allItems[i].name);
                     return message.channel.send(`Success! You cooked ${allItems[i].name} and got:`
-                    + this.cookingFactory(allItems[i].name));
+                    + cookedItem.name);
                 }
                 else
                 {
@@ -39,10 +41,7 @@ module.exports = {
     {
         if(itemName === gameItems.itemFactory.fish.name)
         {
-            // füge hier dem Inventar das Item hinzu
-
-            
-            return gameItems.itemFactory.cookedFish.name;
+            return gameItems.itemFactory.cookedFish;
         }
     },
 };

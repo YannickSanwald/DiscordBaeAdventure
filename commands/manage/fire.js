@@ -43,11 +43,29 @@ module.exports = {
             this.isFireInCamp = true;
             this.isFireInCamp.timeStamp = message.createdAt.getTime() + this.fireTime;
         }
+        else if(channelId === gameChannels.channelFactory.clearing.id)
+        {
+            // set timestamp for crashside
+            this.isFireInClearing = true;
+            this.isFireInClearing.timeStamp = message.createdAt.getTime();
+        }
         else if(channelId === gameChannels.channelFactory.cabin.id)
         {
             // set timestamp for crashside
             this.isFireInCabin = true;
             this.isFireInCabin.timeStamp = message.createdAt.getTime();
+        }
+        else if(channelId === gameChannels.channelFactory.hill.id)
+        {
+            // set timestamp for crashside
+            this.isFireInHill = true;
+            this.isFireInHill.timeStamp = message.createdAt.getTime();
+        }
+        else if(channelId === gameChannels.channelFactory.ruin.id)
+        {
+            // set timestamp for crashside
+            this.isFireInRuin = true;
+            this.isFireInRuin.timeStamp = message.createdAt.getTime();
         }
 
 
@@ -59,7 +77,10 @@ module.exports = {
     {
         if(channelId === gameChannels.channelFactory.crash.id 
             || channelId === gameChannels.channelFactory.camp.id
-            || channelId === gameChannels.channelFactory.cabin.id)
+            || channelId === gameChannels.channelFactory.clearing.id
+            || channelId === gameChannels.channelFactory.cabin.id
+            || channelId === gameChannels.channelFactory.hill.id
+            || channelId === gameChannels.channelFactory.ruin.id)
         {
             return true;
         }
@@ -79,7 +100,25 @@ module.exports = {
         timeStamp: 0,
     },
 
+    isFireInClearing:
+    {
+        value: false,
+        timeStamp: 0,
+    },
+
     isFireInCabin:
+    {
+        value:false,
+        timeStamp:0,
+    },
+
+    isFireInHill:
+    {
+        value:false,
+        timeStamp:0,
+    },
+
+    isFireInRuin:
     {
         value:false,
         timeStamp:0,
@@ -87,5 +126,5 @@ module.exports = {
 
     energyCost : 10,
     occupationTime : 60000 * 5, // 60000 ms = 1 min * 5 = 5min 
-    fireTime : 60000 * 8,
+    fireTime : 60000 * 8, //60000 ms = 1 min * 8 = 8 min
 };

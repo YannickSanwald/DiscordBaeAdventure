@@ -45,7 +45,8 @@ module.exports = {
             energy: 100,
             occupationTimeStamp:0,
         },
-    ],
+    ],    
+    
 
     getUserByMemberRoles: function(memberRoles)
     {
