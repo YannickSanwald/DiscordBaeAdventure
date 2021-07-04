@@ -47,8 +47,11 @@ module.exports = {
                     return true;
                 }
             }
-        }
-        
+        }  
         return false;
+    },
+    resetInventory : function()
+    {
+        this.items = [];
     }
 }

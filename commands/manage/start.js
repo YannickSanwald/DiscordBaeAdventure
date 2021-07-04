@@ -38,12 +38,13 @@ module.exports = {
     
       if(memberCount===roles.allGameRoles.length)
       {
-        // GAME CAN START!!!!!
-        // Here follows the logic of the game start ->
-        // assign all roles necessary for the players to go to the crashside!
-        // save the storyProgress in the DB
+        return true;
       }
-    }
+
+      return false;
+    },
+
+    hasGameStarted: false,
 };
 
 

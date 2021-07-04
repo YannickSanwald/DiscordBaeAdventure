@@ -26,6 +26,9 @@ module.exports = {
             name: "FirstNightOver",
             currentState: false,
         },
+
+// ================================= CHAPTER 2 =================================
+
         {
             name: "ForestPathDone",
             currentState: false,
@@ -35,13 +38,12 @@ module.exports = {
             currentState: false,
         },
         {
-            name: "MetStonedGroup",
-            currentState: false,
-        },
-        {
             name: "FinishedBridgePuzzle",
             currentState: false,
         },
+
+// ================================= CHAPTER 3 =================================
+
         {
             name: "AfterHill",
             currentState: false,
@@ -74,5 +76,13 @@ module.exports = {
             }
         }
     },
+
+    resetStoryProgress: function()
+    {
+        for(let i = 0; i < this.progressStates.length;i++)
+        {
+            this.progressStates[i].currentState = false;
+        }
+    }
 
 }

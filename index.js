@@ -5,6 +5,7 @@ const Discord = require('discord.js'); // Standard Discord Bot Commands
 const config = require('./config.json'); // .json mit Config Optionen wie dem verwendeten Prefix
 
 const gameProgress = require('./gameLogic/GameStoryProgress.js');
+const gameStoryBits = require('./gameLogic/GameStoryBits.js');
 const gameUsers = require('./gameLogic/GameUsers.js');
 const roleClaims = require('./gameLogic/RoleClaim.js');
 const gameChannels = require('./gameLogic/GameChannels.js');
@@ -72,12 +73,6 @@ client.once('ready', async () => {
 });
 
 client.on('message', async message => {
-	if(this.isBotMakingStoryDecision)
-	{
-		message.channel.send("You cant chat or type in any commands before all necessary players made a decision. Use the voice channel to communicate with your team.")
-		return;
-	}
-
 	if (!message.content.startsWith(config.prefix) || message.author.bot) 
 	{
 			//Breche auslesen ab wenn command nicht mit ! beginnt
@@ -86,7 +81,7 @@ client.on('message', async message => {
 
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/); //Entferne das Prefix vom Command
 	const commandName = args.shift().toLowerCase(); //Ändere die Ausgabe in LowerCase
-    currency.add(message.author.id, 1);
+    //currency.add(message.author.id, 1);
 
 	if(commandName === 'delete')
 	{
@@ -110,9 +105,13 @@ client.on('message', async message => {
 
 		await pinMessages();
 	}
-
+	
 	if (!client.commands.has(commandName)) return; //Breche ab wenn das Command in der Collection nicht existiert
 	
+	if(!checkIfUserIsInVotingAndCommandIsValid(message,commandName))
+	{
+		message.reply(message.author.username + ": Du kannst während eines Votings keine Kommandos schicken, die nicht zum Voting gehören!")
+	}
 
     const command = client.commands.get(commandName); //Suche das richtige Command aus der Collection
 	try {
@@ -124,92 +123,35 @@ client.on('message', async message => {
 
 });
 
-
-client.on('messageReactionAdd', async (reaction,user) => {
-	if(reaction.message.partial) await reaction.message.fetch();
-	if(reaction.partial) await reaction.fetch();
-	if(user.bot) return;
-	if(!reaction.message.guild) return;
-
-
-	// Checking if reaction was one of the user roles
-	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
+const checkIfUserIsInVotingAndCommandIsValid = function(message,command)
+{
+	const storyBit = gameStoryBits.getCurrentStoryBit(message.channel.id);
+	if(storyBit != null)
 	{
-		if(reaction.emoji.name === roleClaims.allGameRoles[i].emoji)
+		if(storyBit.isFinished === false && storyBit.isActive === true)
 		{
-			console.log("reacted to an emoji role");
-			const userTemp = reaction.message.guild.members.cache.get(user.id);
-			
-			const otherUserHasRoleAlready = roleClaims.hasAnybodyRoleExceptUser(
-				reaction.message.guild.members.cache,
-				user,
-				roleClaims.allGameRoles[i]);
-
-			if(otherUserHasRoleAlready)
+			if(command === "!yes" || command === "!no" || command === "next" || command === "left" || command === "right")
 			{
-				console.log("Somebody else has the role already");
-				reaction.message.channel.send("Jemand anderes hat die Rolle bereits gewählt. Wähle bitte eine andere aus.")
-				return;
+				return true;
 			}
-
-
-			if(roleClaims.hasUserGameRole(userTemp))
-			{
-				console.log("user has a gameRole");
-				const userReactions = reaction.message.reactions.cache.filter(reaction => reaction.users.cache.has(user.id));
-				for (const reaction of userReactions.values()) {
-					await reaction.users.remove(user.id);
-				}
-				roleClaims.removeUserGameRoles(userTemp);
-
-				// Check if player has already another gameRole 
-				// -> remove other gameRole
-				// -> remove "reaction"
-				// -> remove userId of other role in gameUsers 
-				//..............................
-				//..............................
-			};
-			
-			
-			userTemp.roles.add(roleClaims.allGameRoles[i].id);
-			const currentGameUser = gameUsers.getUserByMemberRoleId(roleClaims.allGameRoles[i].id);
-			currentGameUser.userId = userTemp.id;
-			
-			if(gameUsers.areAllUsersReadyToPlay())
-			{
-				const startGame = require('./commands/manage/start.js');
-				
-				// Start the game.
-				// give them the necessary rights (player-Role?)
-				return;
-			}
-			
-			//console.log("Waiting for other players to choose a role.");
+			return false;
 		}
 	}
- 
-})
-
-client.on('messageReactionRemove', async (reaction,user) => {
-	if(reaction.message.partial) await reaction.message.fetch();
-	if(reaction.partial) await reaction.fetch();
-	if(user.bot) return;
-	if(!reaction.message.guild) return;
-
-	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
-	{
-		if(reaction.emoji.name === roleClaims.allGameRoles[i].emoji)
-		{
-			console.log("reacted to an emoji role");
-			const userTemp = await reaction.message.guild.members.cache.get(user.id);
-			userTemp.roles.remove(roleClaims.allGameRoles[i].id);
-		}
-	}
-
-})
+	return true;
+}
 
 const resetGame = async () =>
 {
+	gameProgress.resetStoryProgress();
+	gameStoryBits.resetStory();
+	gameInventory.resetInventory();
+	
+	const forestPathPuzzle = require('./gameLogic/ForestPathPuzzle.js');
+	forestPathPuzzle.reset();
+	const startGame = require('./commands/manage/start.js');
+	startGame.hasGameStarted = false;
+
+	// delete all texts in all channels
 	for(const [channelId, channel] of client.channels.cache.entries())
 	{
 		if(channel.isText())
@@ -232,6 +174,100 @@ const pinMessages = async () =>
 		}
 	}
 }
+
+// Discord bietet keine Möglichkeit, den Wechsel/Eintritt in einen Text Channel zu erkennen
+// Um den Umstand zu umgehen, wird einfach darauf gewartet, bis der User etwas tippt. Daraufhin wird über die Channel ID das derzeitige StoryBit ermittelt
+client.on('typingStart', async(channel,user) => {
+	const storyBit = gameStoryBits.getCurrentStoryBit(channel.id);
+	if(storyBit === null)
+	{
+		return;
+	}
+
+	if(storyBit != null)
+	{
+		if(storyBit.isFinished === false && storyBit.isActive === false)
+		{
+			storyBit.isActive = true;
+			storyBit.parts[0].isPosted = true;
+			await channel.send(storyBit.parts[0].text);
+		}
+	}
+});
+
+
+client.on('messageReactionAdd', async (reaction,user) => {
+	if(reaction.message.partial) await reaction.message.fetch();
+	if(reaction.partial) await reaction.fetch();
+	if(user.bot) return;
+	if(!reaction.message.guild) return;
+
+	const startGame = require('./commands/manage/start.js');
+
+	if(startGame.hasGameStarted)
+	{
+		return;
+	}
+	// Checking if reaction was one of the user roles
+	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
+	{
+		if(reaction.emoji.name === roleClaims.allGameRoles[i].emoji)
+		{
+			console.log("reacted to an emoji role");
+			const userTemp = reaction.message.guild.members.cache.get(user.id);
+			
+			const otherUserHasRoleAlready = roleClaims.hasAnybodyRoleExceptUser(
+				reaction.message.guild.members.cache,
+				user,
+				roleClaims.allGameRoles[i]);
+
+			if(otherUserHasRoleAlready)
+			{
+				console.log("Somebody else has the role already");
+				reaction.message.channel.send(`${user.username}: Jemand anderes hat die Rolle ${reaction.emoji.name} bereits gewählt. Wähle bitte eine andere aus.`)
+				return;
+			}	
+			
+			userTemp.roles.add(roleClaims.allGameRoles[i].id);
+			const currentGameUser = gameUsers.getUserByMemberRoleId(roleClaims.allGameRoles[i].id);
+			currentGameUser.userId = userTemp.id;
+			
+			if(gameUsers.areAllUsersReadyToPlay())
+			{
+				if(startGame.checkIfGameCanStart())
+				{
+					startGame.hasGameStarted = true;
+					reaction.message.channel.send("Alle User sind bereit für das Spiel! Wechselt bitte in den 'Crash' Channel, um los zu legen!");
+				}
+				return;
+			}		
+		}
+	}
+})
+
+client.on('messageReactionRemove', async (reaction,user) => {
+	if(reaction.message.partial) await reaction.message.fetch();
+	if(reaction.partial) await reaction.fetch();
+	if(user.bot) return;
+	if(!reaction.message.guild) return;
+
+	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
+	{
+		if(reaction.emoji.name === roleClaims.allGameRoles[i].emoji)
+		{
+			console.log("reacted to an emoji role");
+			const userTemp = await reaction.message.guild.members.cache.get(user.id);
+			if(userTemp != undefined)//userTemp.roles.cache.has(roleClaims.allGameRoles[i].id))
+			{
+				userTemp.roles.remove(roleClaims.allGameRoles[i].id);
+				const currentGameUser = gameUsers.getUserByMemberRoleId(roleClaims.allGameRoles[i].id);
+				currentGameUser.userId = "NONE";
+			}
+		}
+	}
+
+})
+
 
 //Willkommen-Nachricht, die im ersten Channel angezeigt wird --> INTRO
 const welcomeEmbed = new Discord.MessageEmbed()
