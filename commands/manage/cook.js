@@ -1,6 +1,5 @@
 const gameItems = require('../../gameLogic/GameItem.js')
 const gameInventory = require('../../gameLogic/GameInventory.js');
-const { itemFactory } = require('../../gameLogic/GameItem.js');
 
 module.exports = {
 	name: 'cook',

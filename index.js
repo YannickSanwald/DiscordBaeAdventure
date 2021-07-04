@@ -208,6 +208,7 @@ client.on('messageReactionAdd', async (reaction,user) => {
 	{
 		return;
 	}
+
 	// Checking if reaction was one of the user roles
 	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
 	{
@@ -238,6 +239,10 @@ client.on('messageReactionAdd', async (reaction,user) => {
 				{
 					startGame.hasGameStarted = true;
 					reaction.message.channel.send("Alle User sind bereit für das Spiel! Wechselt bitte in den 'Crash' Channel, um los zu legen!");
+					for( const [memberId, member] of reaction.message.guild.members.cache.entries())
+					{
+						member.roles.add(roleClaims.allFunctionalityRoles.find(role=> role.name === "Player").id);
+					}
 				}
 				return;
 			}		

@@ -8,10 +8,6 @@ module.exports = {
 	execute(message) {
 		const channelId = message.channel.id;
 
-        const userTemp = message.guild.members.cache.get(message.author.id);
-        const hillRole = roleClaims.allFunctionalityRoles.find(role => role.name === "Hill");
-        console.log(userTemp.roles.add(hillRole));
-
 		if(channelId === gameChannels.channelFactory.forest.id)
 		{
             if(gameProgress.getProgressStateByName("FinishedBridgePuzzle").currentState === true)
