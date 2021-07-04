@@ -70,7 +70,7 @@ module.exports = {
 
 
         gameStoryProgress.getProgressStateByName("MadeFire").currentState = true;
-        return message.channel.send('Great! You made fire! The human race proves again, that a big fiend can be an even bigger friend!');
+        return message.channel.send('Du hast ein Feuer gemacht. Gratulation, auch Steinzeitmenschen haben das geschafft!');
 	},
 
     isChannelValid: function(channelId)

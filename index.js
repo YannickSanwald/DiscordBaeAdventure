@@ -209,7 +209,7 @@ client.on('messageReactionAdd', async (reaction,user) => {
 		return;
 	}
 
-	// Checking if reaction was one of the user roles
+	// Überprüfen, ob Reaction einer der User roles war
 	for(let i = 0; i < roleClaims.allGameRoles.length;i++)
 	{
 		if(reaction.emoji.name === roleClaims.allGameRoles[i].emoji)
@@ -225,7 +225,7 @@ client.on('messageReactionAdd', async (reaction,user) => {
 			if(otherUserHasRoleAlready)
 			{
 				console.log("Somebody else has the role already");
-				reaction.message.channel.send(`${user.username}: Jemand anderes hat die Rolle ${reaction.emoji.name} bereits gewählt. Wähle bitte eine andere aus.`)
+				reaction.message.channel.send(`${user.username}: Jemand anderes hat die Rolle ${reaction.emoji.name} bereits gewählt. Wähle eine andere aus.`)
 				return;
 			}	
 			
@@ -238,7 +238,7 @@ client.on('messageReactionAdd', async (reaction,user) => {
 				if(startGame.checkIfGameCanStart())
 				{
 					startGame.hasGameStarted = true;
-					reaction.message.channel.send("Alle User sind bereit für das Spiel! Wechselt bitte in den 'Crash' Channel, um los zu legen!");
+					reaction.message.channel.send("Alle User sind bereit für das Spiel! Wechselt bitte in den 'Crash' Channel, um loszulegen!");
 					for( const [memberId, member] of reaction.message.guild.members.cache.entries())
 					{
 						member.roles.add(roleClaims.allFunctionalityRoles.find(role=> role.name === "Player").id);
@@ -271,28 +271,7 @@ client.on('messageReactionRemove', async (reaction,user) => {
 		}
 	}
 
-})
-
-
-//Willkommen-Nachricht, die im ersten Channel angezeigt wird --> INTRO
-const welcomeEmbed = new Discord.MessageEmbed()
-.setColor('#0099ff')
-.setTitle('some title')
-.setURL('https://discord.js.org/')
-.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-.setDescription('Some description here')
-.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-.addFields(
-	{ name: 'Regular field title', value: 'Some value here' },
-	{ name: '\u200B', value: '\u200B' },
-	{ name: 'Inline field title', value: 'Some value here', inline: true },
-	{ name: 'Inline field title', value: 'Some value here', inline: true },
-	)
-	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
-	.setTimestamp()
-	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-	
+})	
 	
 dotenv.config(); //Configures ability to read .env
 client.login(process.env.TOKEN); //Grab token from .env since its hidden from github

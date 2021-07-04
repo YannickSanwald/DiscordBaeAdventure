@@ -68,7 +68,8 @@ module.exports = {
                     gameInventory.removeItem(allItems[i]);
                     gameInventory.addItem(cookedItem);
                     return message.channel.send(`Success! You cooked ${allItems[i].name} and got:`
-                    + cookedItem.name);
+                    + cookedItem.name
+                    + `\n ${cookedItem.description}`);
                 }
                 else
                 {

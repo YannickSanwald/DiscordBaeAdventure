@@ -2,7 +2,7 @@ module.exports = {
     itemFactory : {
         water : {
             name: 'water',
-            description: 'Looks clean. Do not waste it!\nEnergy +10 on use',
+            description: '🥤 Sieht clean aus.\nEnergy +10 on use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -10,7 +10,7 @@ module.exports = {
         },
         fish : {
             name: 'fish',
-            description: 'Some raw fish. This isnt sushi, you should cook it first!\nEnergy -10 on use',
+            description: '🐟 Roher Fisch. Aber nicht für Sushi geeignet, koch den zuerst!',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -19,7 +19,7 @@ module.exports = {
         cookedFish:
         {
             name: 'cooked fish',
-            description: 'Some cooked fish. Looks extra tasty, watch out for the bones!\nEnergy +20 on use',
+            description: '🍤 Gekochter Fisch. Sieht lecker aus, pass auf Gräten auf!\nEnergy +20 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -27,6 +27,16 @@ module.exports = {
         },
         berries: {
             name: 'berries',
+            description: '🍓 Ein paar Beeren. Sowohl roh als auch gekocht ein Genuss.\nEnergy +5 bei use',
+            Execute: function(userId, channelId)
+            {
+                console.log(`Used ${this.name}`);
+            }
+        },
+        cookedBerries:
+        {
+            name: 'berry sirup',
+            description: '🍷 Gekochte Beeren. Süßer Sirup mit heilenden Effekten!\nEnergy +20 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -34,13 +44,15 @@ module.exports = {
         },
         wood: {
             name: 'wood',
+            description:'🥢 Etwas Holz. Gut geeignet für ein Feuer.',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
             }
         },
         cookies: {
-            name: 'cookies',
+            name: 'cookie',
+            description:'🍪 Keks! Geil!\nEnergy +10 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -48,6 +60,7 @@ module.exports = {
         },
         bread: {
             name: 'bread',
+            description:'🍞 Etwas Brot. Macht gut satt.\nEnergy +10 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -55,7 +68,7 @@ module.exports = {
         },
         herbs: {
             name: 'herbs',
-            description: 'Some herbs. Not tasty to eat like that, make a paste by cooking it!\nEnergy -10 on use',
+            description: '🌿 Ungenießbare Kräuter. Die musst du zuerst kochen!',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -63,8 +76,8 @@ module.exports = {
         },
         cookedHerbs:
         {
-            name: 'herbal paste',
-            description: 'Some cooked herbs. Has great healing effects and is good for the skin!\nEnergy +20 on use',
+            name: 'herbal tea',
+            description: '🍵 Gekochte Kräuter. Eine Tasse Tee tut immer gut!\nEnergy +20 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -72,6 +85,7 @@ module.exports = {
         },
         oats: {
             name: 'oats',
+            description:'🌾 Handvoll Hafer. Kann man so essen, muss man aber nicht... Gekocht schmecken die wesentlich besser.\nEnergy +2 bei use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -80,7 +94,7 @@ module.exports = {
         cookedOats:
         {
             name: 'oatmeal',
-            description: 'Some cooked oats. Great for breakfast, keeps you full!\nEnergy +20 on use',
+            description: '🍚 Warmer Haferbrei. Damit bist du eine Zeit lang satt!\nEnergy +30 on use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -89,7 +103,7 @@ module.exports = {
         corn:
         {
             name: 'Maiskolben',
-            description: 'Ein Maiskolben. Ziemlich gelb!\nEnergy +20 on use',
+            description: '🌽 Ein Maiskolben. Die Körner kommen genau so raus wie sie rein kamen!\nEnergy +5 on use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
@@ -98,7 +112,7 @@ module.exports = {
         beer:
         {
             name: 'Bier',
-            description: 'Ein Bier. Orignal nach Deutschem Reinheitsgebot!\nEnergy +20 on use',
+            description: '🍺 Ein Bier. Orignal nach Deutschem Reinheitsgebot!\nEnergy +20 on use',
             Execute: function(userId, channelId)
             {
                 console.log(`Used ${this.name}`);
