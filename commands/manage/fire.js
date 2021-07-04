@@ -75,9 +75,7 @@ module.exports = {
 
     isChannelValid: function(channelId)
     {
-        if(channelId === gameChannels.channelFactory.crash.id 
-            || channelId === gameChannels.channelFactory.camp.id
-            || channelId === gameChannels.channelFactory.clearing.id
+        if(channelId === gameChannels.channelFactory.camp.id
             || channelId === gameChannels.channelFactory.cabin.id
             || channelId === gameChannels.channelFactory.hill.id
             || channelId === gameChannels.channelFactory.ruin.id)
@@ -88,19 +86,7 @@ module.exports = {
         return false;
     },
     
-    isFireInCrash: 
-    {
-        value: false,
-        timeStamp: 0,
-    },
-    
     isFireInCamp:
-    {
-        value: false,
-        timeStamp: 0,
-    },
-
-    isFireInClearing:
     {
         value: false,
         timeStamp: 0,

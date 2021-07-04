@@ -15,7 +15,7 @@ module.exports = {
         {
             if(allItems[i].name === args[0])
             {
-                return message.channel.send(`Success! Trying to trade object ${args[0]}`);
+                return message.channel.send(`Success! Trying to consume object ${args[0]}`);
             }
         }
         return message.channel.send('No such item found!');
