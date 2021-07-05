@@ -6,48 +6,36 @@ const gameUsers = require('../../gameLogic/GameUsers.js');
 
 module.exports = {
 	name: 'fire',
-	description: 'Makes fire if materials are present',
+	description: 'Macht ein Feuer, wenn genug Materialien vorhanden sind.',
 	execute(message) {
         const channelId = message.channel.id; 
 
         if(!this.isChannelValid(channelId))
         {
-            return message.channel.send("You can't make a fire here. Try it at the crashside or in a camp.");
+            return message.channel.send("Du kannst hier kein Feuer machen. Versuche es woanders.");
         }
 
         if(!gameInventory.hasItems(gameItems.itemFactory.wood, 10))
         {
-            return message.channel.send("You dont have enough wood! You need at least 10 in your inventory!");
+            return message.channel.send("Du hast nicht genug Wood! Du brauchst dafür mindestens 10 Stück im Inventar!");
         }
         
         const currentUser = gameUsers.getUserByMemberRoles(message.member.roles);
         
         if(!currentUser.energy >= this.energyCost)
         {
-            return message.channel.send(`You dont have enough energy left! You need at least ${this.energyCost} to make fire.`)
+            return message.channel.send(`Du hast nicht genug Ernergie, um ein Feuer zu machen! Du brauchst mindestens ${this.energyCost} um ein Feuer zu machen.`)
         }
 
         currentUser.energy -= this.energyCost;
         currentUser.occupationTimeStamp = message.createdAt.getTime() + this.occupationTime;
         
         // make fire
-        if(channelId === gameChannels.channelFactory.crash.id)
-        {
-            // set timestamp for crashside
-            this.isFireInCrash.value = true;
-            this.isFireInCrash.timeStamp = message.createdAt.getTime();
-        }
-        else if(channelId === gameChannels.channelFactory.camp.id)
+        if(channelId === gameChannels.channelFactory.camp.id)
         {
             // set timestamp for camp
             this.isFireInCamp = true;
             this.isFireInCamp.timeStamp = message.createdAt.getTime() + this.fireTime;
-        }
-        else if(channelId === gameChannels.channelFactory.clearing.id)
-        {
-            // set timestamp for crashside
-            this.isFireInClearing = true;
-            this.isFireInClearing.timeStamp = message.createdAt.getTime();
         }
         else if(channelId === gameChannels.channelFactory.cabin.id)
         {

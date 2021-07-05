@@ -117,6 +117,15 @@ module.exports = {
             {
                 console.log(`Used ${this.name}`);
             }
+        },
+        key:
+        {
+            name: 'Key',
+            description: '🔑 Ein Schlüssel, gefunden in der Cabin bei Gandalf. Der hat bestimmt seinen Sinn und Zweck...',
+            Execute: function(userId, channelId)
+            {
+                console.log(`Used ${this.name}`);
+            }
         }
     },
 
@@ -136,6 +145,7 @@ module.exports = {
             this.itemFactory.cookedOats,
             this.itemFactory.corn,
             this.itemFactory.beer,
+            this.itemFactory.key,
         ]
     },
 

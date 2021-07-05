@@ -14,7 +14,7 @@ module.exports = {
             console.log("No arguments given");
             return message.channel.send("No arguments given.\n"
             +"You have to name item(s) which should be cooked (or combined to cook).\n"
-            +"e.g. !cook fish => cooked fish\n !cook buns burger cheese => Cheeseburger");
+            +"e.g. !cook fish => cooked fish\n !cook oat => Oatmeal");
         }
         
         const channelId = message.channel.id;
@@ -67,13 +67,13 @@ module.exports = {
                     const cookedItem = this.cookingFactory(allItems[i].name);
                     gameInventory.removeItem(allItems[i]);
                     gameInventory.addItem(cookedItem);
-                    return message.channel.send(`Success! You cooked ${allItems[i].name} and got:`
+                    return message.channel.send(`Success! Du hast ${allItems[i].name} gekocht und kriegst:`
                     + cookedItem.name
                     + `\n ${cookedItem.description}`);
                 }
                 else
                 {
-                    return message.send(`You don't have any ${allItems[i].name} in your inventory!`);
+                    return message.send(`Du hast kein ${allItems[i].name} im Inventar!`);
                 }
             }
         }
