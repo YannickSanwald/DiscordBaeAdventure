@@ -3,7 +3,7 @@ const gameInventory = require('../../gameLogic/GameInventory.js');
 const gameChannels = require('../../gameLogic/GameChannels.js');
 const fire = require('./fire.js');
 
-const fireHelpString = "\nUm ein Feuer zu machen, gibt den Befehl !FIRE ein!".
+const fireHelpString = "\nUm ein Feuer zu machen, gibt den Befehl !FIRE ein!"
 
 module.exports = {
 	name: 'cook',
