@@ -13,6 +13,8 @@ const OPTION_RIGHT = "!RIGHT";
 
 const commandPromptNext = `\n\n(Bitte eine Person einmal ${OPTION_NEXT} eingeben!)`;
 const commandPromptLeftRight = `\n\n(Bitte einmal ${OPTION_LEFT} oder ${OPTION_RIGHT} eingeben!)`;
+const comandPromptSendHelp= "\n\n Um die Story weitere voranzutreiben bitte '!SendHelp' eingeben.\n";
+
 
 module.exports = {
     storyBits : {
@@ -54,6 +56,7 @@ module.exports = {
                 gameProgress.getProgressStateByName("AfterCrash").currentState = true;
             }
         },
+		
         forestPath: 
         {
             isActive: false,
@@ -149,9 +152,116 @@ module.exports = {
                 gameInventory.addItem(gameItems.itemFactory.fish,9);
                 gameInventory.addItem(gameItems.itemFactory.corn,3);
                 gameInventory.addItem(gameItems.itemFactory.beer,6);
-                gameProgress.getProgressStateByName("ForestPathDone").currentState = true;
+                gameProgress.getProgressStateByName("MetGandalf").currentState = true;
             }
-        },     
+        },
+		HillPath: 
+        {
+            isActive : false,
+            isFinished: false,
+            options: [],
+            parts: [
+                {
+                    isPosted: false,
+                    text: "Endlich werdet Ihr über die Brücke gelassen und könnt die restlichen Meter in Richtung Hügel gehen.\n"
+                    + "Dort angekommen stellt ihr fest, dass ihr einen Balken im Mobilfunknetz habt! Sofort versucht ihr ein SOS Signal abzusenden.\n" 
+                    +"Nach 5 langen Minuten ohne Regung des Handys kommt plötzlich eine “ERROR” Meldung."
+                    +"Es hat nicht funktioniert! Und der Akku ist nun auch leider leer. Ihr entscheidet euch dazu noch höher steigen, um die Wahrscheinlichkeit eines besseren Signals zu steigern.\n" 
+					+"Ihr schaut euch um und seht den Mountain!\n"
+					+"Was nun?\n"
+                    
+                },
+                
+            ],
+            onFinish: function()
+            {
+                gameProgress.getProgressStateByName("AfterHill").currentState = true;
+            }
+        },
+		openingSafe: 
+        {
+            isActive: false,
+            isFinished :false,
+            options: [],
+            parts: [
+                {
+                    isPosted: false,
+                    text: "Ihr schaut euch den Safe näher an. Auf dem Safe ist ein bekanntes Tastenfeld zu erkennen...\n"
+						+ "In dem Körbchen waren nicht nur gute Items dabei, sondern auch ein Zettel auf dem ein Wort steht:\n"
+						+ "\n'wehatesocialgaming'\n"
+                        
+                },
+                
+            ],
+            onFinish: function()
+            {
+                gameProgress.getProgressStateByName("OpenedSafe").currentState = true;
+            }
+        },
+		doingRuin: 
+        {
+            isActive: false,
+            isFinished :false,
+            options: [],
+            parts: [
+                {
+                    isPosted: false,
+                    text: "Nach langem Fußmarsch entdeckt ihr dem Eingang einer Ruine. Ihr nehmt euch eine Fackel und beginnt die Dunkle Ruine zu erkunden.\n"
+						 +"Ihr entdeckt eine Tür... Sie ist versperrt.\n"
+						 +"Was wollt ihr tun?"
+						
+                },
+                
+            ],
+            onFinish: function()
+            {
+                gameProgress.getProgressStateByName("AfterRuin").currentState = true;
+            }
+        },
+		doingQuiz: 
+        {
+            isActive: false,
+            isFinished :false,
+            options: [],
+            parts: [
+                {
+                    isPosted: false,
+                    text: "'Glückwunsch! Bisher hat noch niemand meine Rätsel gelöst. \n"
+					+"Allerdings seid ihr auch die ersten die hier lang kommen. \n"
+					+"Naja viel Spaß da oben!'Ihr steigt in den Lift ein und braucht eine ganze Stunde bis ihr am Gipfel ankommt. \n"
+					+"In der Zwischenzeit befestigt ihr die Antenne am Handy und überlegt, wie ihr wohl gerettet werdet.\n"
+					+"Oben angekommen, öffnen sich die Türen des Lifts.\n"
+					+"Ein kalter Wind bläst euch entgegen und das Lichtblendet euch. \n"
+					+"Nach paar Minuten habt ihr euch an das Licht gewöhnt. \n"
+					+"Der Ausblick ist traumhaft! Notiz: Die Autoren haben kein gutes Foto gefunden, deswegen stell euch bitte eine “traumhafte” Landschaft vom Berg aus gesehen vor.Ihr habt es geschafft!\n" 
+					+"Aber nur fast. Nun das Signal senden!(Bitte eine Person “!SEND HELP” eingeben!)\n"
+					+comandPromptSendHelp	
+                },
+                
+            ],
+            onFinish: function()
+            {
+                gameProgress.getProgressStateByName("AfterQuiz").currentState = true;
+            }
+        },
+		finishPinish: 
+        {
+            isActive: false,
+            isFinished :false,
+            options: [],
+            parts: [
+                {
+                    isPosted: false,
+                    text:
+					+comandPromptSendHelp	
+                },
+                
+            ],
+            onFinish: function()
+            {
+                gameProgress.getProgressStateByName("GameFinished").currentState = true;
+            }
+        },
         toArray: function()
         {
             return [
