@@ -50,10 +50,7 @@ module.exports = {
                 }
             }  
         }
-        else if(channelId === gameChannels.channelFactory.clearing.id)
-        {
-           
-        }
+        
         else if(channelId === gameChannels.channelFactory.cabin.id)
         {
            
