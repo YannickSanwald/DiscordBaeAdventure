@@ -4,16 +4,8 @@ const gameInventory = require('./GameInventory.js');
 const gameItems = require('./GameItem.js');
 
 
-
-const OPTION_NEXT = "!NEXT";
-const OPTION_YES = "!YES";
-const OPTION_NO = "!NO";
-const OPTION_LEFT = "!LEFT";
-const OPTION_RIGHT = "!RIGHT";
-
-const commandPromptNext = `\n\n(Bitte eine Person einmal ${OPTION_NEXT} eingeben!)`;
-const commandPromptLeftRight = `\n\n(Bitte einmal ${OPTION_LEFT} oder ${OPTION_RIGHT} eingeben!)`;
-const comandPromptSendHelp= "\n\n Um die Story weitere voranzutreiben bitte '!SendHelp' eingeben.\n";
+const commandPromptNext = "\n\n(Bitte eine Person einmal '!NEXT' eingeben!)";
+const commandPromptLeftRight = "\n\n(Bitte einmal '!LEFT' oder '!RIGHT' eingeben!)";
 
 
 module.exports = {
@@ -22,33 +14,39 @@ module.exports = {
         {
             isActive : false,
             isFinished: false,
-            options: [OPTION_NEXT],
             parts: [
                 {
                     isPosted: false,
                     text: "Was für ein schöner Tag. Ihr und eure Kommilitonen aus der Uni dachtet: \n"
-                    + "\"Was für ein Spaß! Lasst uns doch an diesem Camp-Adventure im Wald teilnehmen\“\n." 
+                    + "\"Lasst uns doch an diesem Camp-Adventure im Wald teilnehmen\“\n." 
                     +"Eine ganze Woche weg von Stress und Hektik aus dem Alltag. Ihr freut euch, unterhaltet euch"
-                    +"und plötzlich ist der Spaß vorbei. Der Bus bleibt liegen. Es ist gerade 18 Uhr, die Dämmerung hat begonnen.\n" 
+                    +"und plötzlich ist der Spaß vorbei.\n"
+                    +"Der Bus bleibt liegen.\n"
+                    +"Es ist gerade 18 Uhr, die Dämmerung hat begonnen.\n" 
                     + commandPromptNext
                 },
                 {
                     isPosted: false,
                     text: "'Heheheheheheheeeee.....Ich möchte ein Spiel mit Euch spielen!!'\n\n"
                     +"Ihr seid verwirrt. Ist das... Echt jetzt?! Die Jigsaw-Puppe!? Er hebt mit seinem Fahrrad vom Boden ab und schwebt auf die Motorhaube des Busses.\n"
-                    +"'Heheheheheee... Ich heiße Euch herzlich Willkommen auf meinem neuen Grundstück! Gerade wurde mir schon langweilig und ich wollte auf die Suche nach Opfern gehen. Wunderschön, dass ich Euch gefunden habe! Ihr habt 72 Stunden Zeit aus diesem Wald zu kommen - oder ihr werdet sterben! In 72 Stunden wird hier alles zu Boden gerodet, weil mein neues Schlachthaus hier gebaut wird. Ich feiere dies mit einem wunderschönen Bomben-Feuerwerk! Nichts geht schneller! Heheheheheheeee... Vielleicht könnt ihr es schaffen. Viel Spaß!'\n\n"
-                    +"Weg war er. Manche von euch haben versucht ihn mit dem Handy zu filmen, jedoch sind diese verschwunden. Auch die anderen, die aus dem Schock kommen, suchen ihre Handys... vergebens. Ihr schaut euch gegenseitig an. Jeder von euch denkt dasselbe: 'WTF?'."
+                    +"'Heheheheheee... Ich heiße Euch herzlich Willkommen auf meinem neuen Grundstück! Gerade wurde mir schon langweilig und ich wollte auf die Suche nach Opfern gehen. Wunderschön, dass ich Euch gefunden habe!\n"
+                    +"Ihr habt 72 Stunden Zeit aus diesem Wald zu kommen - oder ihr werdet sterben! In 72 Stunden wird hier alles zu Boden gerodet, weil mein neues Schlachthaus hier gebaut wird. Ich feiere dies mit einem wunderschönen Bomben-Feuerwerk! Nichts geht schneller! Heheheheheheeee... Vielleicht könnt ihr es schaffen. Viel Spaß!'\n\n"
+                    +"Weg war er. Manche von euch haben versucht ihn mit dem Handy zu filmen, jedoch sind diese verschwunden. Auch die anderen, die aus dem Schock kommen, suchen ihre Handys... vergebens. Ihr schaut euch gegenseitig an. Jeder von euch denkt dasselbe: 'WTF?'.\n\n"
                     +commandPromptNext
                 },
                 {
                     isPosted: false,
-                    text: "Ihr wollt den Busfahrer fragen, wie weit das Camp noch entfernt ist, doch wo ist er? Ihr steigt aus dem Bus und schaut herum… Nichts anderes als der Waldweg und Bäume. Viele Bäume. Wo sind wir nochmal...? Ihr ruft nach ihm… Nichts. Ein paar rufen weiter und die andere Hälfte durchsucht den Bus. Es muss doch bestimmt ein Notruftelefon hier sein... Nichts. Hier seid Ihr und müsst einen Weg aus diesem Wald finden, in dem Ihr gestrandet seid." 
+                    text: "Ihr wollt den Busfahrer fragen, wie weit das Camp noch entfernt ist, doch wo ist er? Ihr steigt aus dem Bus und schaut herum… Nichts anderes als der Waldweg und Bäume. Viele Bäume. Wo sind wir nochmal...?\n"
+                    +"Ihr ruft nach ihm… Nichts. Ein paar rufen weiter und die andere Hälfte durchsucht den Bus. Es muss doch bestimmt ein Notruftelefon hier sein... Nichts.\n"
+                    +"Hier seid Ihr und müsst einen Weg aus diesem Wald finden, in dem Ihr gestrandet seid.\n" 
                     +commandPromptNext
                 },
                 {
                     isPosted: false,
-                    text: "Ihr beginnt langsam zu realisieren, dass ihr euch heute nicht mehr von der Crashside wegbewegen werdet. Allgemeine Unruhe macht sich breit. Nun muss etwas getan werden. Ihr bereitet euch für die kommende Nacht vor… Ohje! Ihr habt keine Taschenlampen… Oder Heizungen… Was gibt’s eigentlich zum Futtern? "
-                    + "\n\n Achtung: In jedem Discord-Channel gibt es gepinnte Nachrichten! Diese findet ihr rechts oben über den Pin Button. Hier stehen eure Aufgaben, Ziele und Interaktionsmöglichkeiten mit der Welt! Lest euch diese gut durch und gestaltet gemeinsam Strategien, um das Abenteuer zu bestehen."
+                    text: "Ihr beginnt langsam zu realisieren, dass ihr euch heute nicht mehr von der Crashside wegbewegen werdet. Allgemeine Unruhe macht sich breit. Nun muss etwas getan werden. Ihr bereitet euch für die kommende Nacht vor…\n"
+                    +"Ohje! Ihr habt keine Taschenlampen… Oder Heizungen… Was gibt’s eigentlich zum Futtern? "
+                    +"\n\n Achtung: In jedem Discord-Channel gibt es gepinnte Nachrichten! Diese findet ihr rechts oben über den Pin Button. Hier stehen eure Aufgaben, Ziele und Interaktionsmöglichkeiten mit der Welt! Lest euch diese gut durch und gestaltet gemeinsam Strategien, um das Abenteuer zu bestehen."
+                    +"\n\n Wechselt nun bitte in den Camp-Channel! Es ist an der Zeit euer Lager für Nacht aufzubauen."
                 }
             ],
             onFinish: function()
@@ -61,31 +59,35 @@ module.exports = {
         {
             isActive: false,
             isFinished :false,
-            options: [OPTION_LEFT, OPTION_RIGHT],
             parts: [
                 {
                     isPosted: false,
-                    text: "Starttext im ForestPath."
+                    text: "Da es hier nichts Interessantes mehr gibt, geht ihr in den Wald. Nach bisschen Laufen kommt ihr an eine Gabelung.\n"
+                        +"Welchen Weg wählt ihr?\n\n"
                         +commandPromptLeftRight,
                 },
                 {
                     isPosted: false,
-                    text: "Tiefer im Wald angekommen, teilt sich der Weg erneut. Wo lang wollt ihr gehen?"
+                    text: "Der Weg teilt sich erneut. Wo lang wollt ihr gehen?"
                             +commandPromptLeftRight,
                 },
                 {
                     isPosted: false,
-                    text: "Ihr seid an Gabelung 3 angekommen."
+                    text: "Ihr seid nun an einer dritten Gabelung angekommen.\n"
+                        +"Welchen weg nehmt ihr jetzt?\n\n"
                         +commandPromptLeftRight,
                 },
                 {
                     isPosted:false,
-                    text: "Ihr seid an Gabelung 4 angekommen."
+                    text: "Ihr seid an Gabelung 4 angekommen. Wie viele es wohl noch gibt?"
                         +commandPromptLeftRight,
                 },
                 {
                     isPosted: false,
-                    text: "Der Wald lichtet sich und ihr seht eine Hütte. Wechselt in den Channel 'Cabin'!",
+                    text: "Ihr hört aus der Ferne wummernde Bässe und könnt den Geruch von Marihuana und alten Kartoffelsack wahrnehmen…\n"
+                        +"Ihr geht weiter und der Wald lichtet sich.\n"
+                        +"Ihr seht eine sehr alte Cabin mit Schornstein, aus dem grüner Rauch empor steigt.\n\n"
+                        +"Wechselt in den Channel 'Cabin'!",
                 }
             ],
             onFinish: function()
@@ -93,50 +95,27 @@ module.exports = {
                 gameProgress.getProgressStateByName("ForestPathDone").currentState = true;
             }
         },
-        bridgePuzzle: 
-        {
-            isActive: false,
-            isFinished :false,
-            options: [OPTION_NEXT],
-            parts: [
-                {
-                    isPosted: false,
-                    text: "Hier kommt der Text mit der Stoned Group. STREICHT DIE MAP AUS DEM TEXT"
-                        +commandPromptNext,
-                },
-                {
-                    isPosted: false,
-                    text: "Hier kommt der Brückentext mit dem Rätsel"
-                            +commandPromptNext,
-                },
-                {
-                    isPosted: false,
-                    text: "Hier kommt eine Glükwunsch Nachricht und der Verweis, in den Channel Hill zu wechseln."
-                },
-            ],
-            onFinish: function()
-            {
-                gameProgress.getProgressStateByName("FinishedBridgePuzzle").currentState = true;
-            }
-        },
         cabinWelcome: 
         {
             isActive: false,
             isFinished :false,
-            options: [OPTION_NEXT],
             parts: [
                 {
                     isPosted: false,
-                    text: "Ihr hört aus der Ferne wummernde Bässe und könnt den Geruch von Marihuana und alten Kartoffelsack wahrnehmen... Ihr geht weiter und der Wald lichtet sich. Ihr erkennt eine sehr alte Cabin mit Schornstein, aus dem grüner Rauch empor steigt. Neben der Cabin sind ein Wolf und sieben Geißlein und schnüffeln Kreide, flüchten aber, als sie euch sehen:\n\n 'Scheiße! Die Bullen!' \n\nIhr schaut euch verwirrt an. Ohne groß nachzudenken geht ihr zur Tür und klopft an. Es passiert nichts."  
+                    text: "Neben der Cabin sind ein Wolf und sieben Geißlein und schnüffeln Kreide, flüchten aber, als sie euch sehen:\n\n 'Scheiße! Die Bullen!' \n\n"
+                            +"Ihr schaut euch verwirrt an. Ohne groß nachzudenken geht ihr zur Tür und klopft an. Es passiert nichts.\n"  
                             + "Ihr klopft erneut und der grüne Rauch dringt durch alle Seiten der Tür."
                             + "Plötzlich fliegt die Tür auf!"
-                            + "\n\nVor euch steht ein Mann von mehr als 2 Meter. Er trägt einen spitzen Hut, ein graues Gewand voll mit Löchern und hat graue Haare. Mit seiner Pfeife im Mundwinkel beugt er sich zu euch: \n\n'Seid ihr Partylauch? Kennen wir uns? Wo sind die anderen Pizzagesichter?'\n\nEr schaut sich um und pafft an der Pfeife:\n\n'Hmm. Die Luschen. Was wollt ihr?'"
+                            + "\n\nVor euch steht ein Mann von mehr als 2 Meter. Er trägt einen spitzen Hut, ein graues Gewand voll mit Löchern und hat graue Haare.\n"
+                            +"Mit seiner Pfeife im Mundwinkel beugt er sich zu euch: \n\n'Seid ihr Partylauch? Kennen wir uns? Wo sind die anderen Pizzagesichter?'\n\nEr schaut sich um und pafft an der Pfeife:\n\n'Hmm. Die Luschen. Was wollt ihr?'"
                             + commandPromptNext,
                 },
+                //Hier Denis fragen, ob man die Verbindung mit next-command machen muss!!
                 {
                     isPosted: false,
-                    text: "Es scheint jedoch nicht so, als ob er euch wirklich zuhört... \n\nAus dem nichts streckt euch Gandalf folgendes ein 'Nokia 3410' entgegen."
-                            +"\n\nNIMMT! Ich brauch das Teil nicht mehr, vielleicht könnt ihr damit was anfangen. Ah der Akku ist fast leer, hab hier keinen Strom... EY! Habt ihr auch Hunger? Wo ist denn der blöde Wolf, er hat mir Ziglein versprochen...'"
+                    text: "Ihr versucht Eure Situation zu erklären... Jedoch scheint es nicht so, als ob er euch wirklich zuhört... \n\nAus dem nichts streckt euch Gandalf folgendes ein 'Nokia 3410' entgegen."
+                            +"\n\nNIMMT! Ich brauch das Teil nicht mehr, vielleicht könnt ihr damit was anfangen. Ah der Akku ist fast leer, hab hier keinen Strom...\n"
+                            +"EY! Habt ihr auch Hunger? Wo ist denn der blöde Wolf, er hat mir Ziglein versprochen...'"
                             +"\n\nIhr versucht das Nokia zu benutzen, jedoch scheint ihr in diesem Tal kein Netz zu haben."
                             +"\nGandalf dreht sich um und verschwindet im Haus. Er kommt mit einem riesigen Beutel zurück, murmelt etwas und plötzlich ist ein ganzes Fressgelage vor euch."
                             +"\n\n'Bedient Euch! Pott ist im Haus, das andere sollte der Wolf mitbringen... Wenn ihr bisschen baden wollt, da hinten ist ein See! Ihr seid nicht von hier, was? Komm hier ein Shortcut zu eurem Camp, könnt jederzeit herkommen wenn ihr wollt!'"
@@ -155,26 +134,86 @@ module.exports = {
                 gameProgress.getProgressStateByName("MetGandalf").currentState = true;
             }
         },
-		HillPath: 
+        //Hier Denis fragen, ob nicht Verbindung zu next gemacht werden muss, damit das nächste Szenario anfangen kann
+        bridgePuzzle: 
         {
-            isActive : false,
-            isFinished: false,
-            options: [],
+            isActive: false,
+            isFinished :false,
             parts: [
                 {
                     isPosted: false,
-                    text: "Endlich werdet Ihr über die Brücke gelassen und könnt die restlichen Meter in Richtung Hügel gehen.\n"
-                    + "Dort angekommen stellt ihr fest, dass ihr einen Balken im Mobilfunknetz habt! Sofort versucht ihr ein SOS Signal abzusenden.\n" 
-                    +"Nach 5 langen Minuten ohne Regung des Handys kommt plötzlich eine “ERROR” Meldung."
-                    +"Es hat nicht funktioniert! Und der Akku ist nun auch leider leer. Ihr entscheidet euch dazu noch höher steigen, um die Wahrscheinlichkeit eines besseren Signals zu steigern.\n" 
-					+"Ihr schaut euch um und seht den Mountain!\n"
-					+"Was nun?\n"
-                    
+                    text: "Ihr zieht weiter! Nach 300 m im Wald hört ihr Gelächter. Auf dem Boden vor euch ist eine Spur aus weißer Substanz und Brotkrümel…\n"
+                            +"Ihr folgt dieser Spur, das Lachen wird lauter und bei einer Steingruppe sitzen Hänsel & Gretel, der Wolf und die sieben Geißlein.\n\n"
+                            +"Der Wolf sieht euch als erstes und erstarrt: “BULLEN! Die sind uns gefolgt!”\n"
+                            +"Nun drehen sich Hänsel & Gretel zu euch um.\n\n"
+                            +"Hänsel: “Ach ihr seid’s! Na den alten Sack da hinten überstanden? Der hat echt gutes Zeug.”\n\n"
+                            +"Gretel: “ Habt ihr uns was mitgebracht?”\n\n"
+                            +"Der Wolf und die sieben Geißlein entspannen.\n"
+                            +"Wolf: “Keine Bullen?”\n"
+                            +"Geißlein 1: “Keine Bullen. Freunde?”\n"
+                            +"Geißlein 2: “Freunde. Mit Pott vom alten Sack?”\n"
+                            +"Geißlein 3: “Mit Pott vom alten Sack!”\n"
+                            +"Die Geißlein mähen glücklich, als ihr Ihnen etwas von eurem Mitbringsel abgibt.\n\n" 
+                            +"Da ihr so sozial zu der Gruppe seid, geben sie euch eine Anweisung, wie ihr zu einem Hügel kommt.\nVielleicht kriegt ihr dort Netz für ein Signal?\n\n"
+                            +"“Tschüss!” rief der Wolf und er und alle anderen verschwinden im Wald."
+                            +commandPromptNext,
                 },
-                
+                {
+                    isPosted: false,
+                    text: "Ihr setzt euren Weg fort und folgt den Hinsweisen der Gruppe.\n\n"
+                            +"Eure Party kommt an der Brücke an, aber noch bevor ihr den ersten Schritt auf die Steinerne Brücke setzten könnt, springt ein Schatten von hinten über euch.\n\n"
+                            +"Es ist Käpt’n Balu, nur diesmal ohne seine Tollkühne Crew. Das Fehlen der Crew ändert aber nicht, dass Balu euch im Weg steht.\n\n"
+                            +"“Nur wenn Ihr mein Rätzel Lösen könnt, gewähre ich euch den Weg über meine Brücke.”"
+                            +commandPromptNext, //Hier sollte ein command hin, dass zum Quiz führt, oder soll das Quiz in das next-command unter forest?
+                                                //wie füge ich ein, dass der Bot erkennt, an welchem Punkt im forest ich bin?
+                },
+                {
+                    isPosted: false,
+                    text: "Yes, geschafft! Ihr könnt über die Brücke und diese kleine Pause hat euch gut getan.\n\n Ihr setzt euren Weg fort. Wechselt nun in den Hill-Channel!"
+                },
             ],
             onFinish: function()
             {
+                gameProgress.getProgressStateByName("FinishedBridgePuzzle").currentState = true;
+            }
+        },
+		hillPath: 
+        {
+            isActive : false,
+            isFinished: false,
+            parts: [
+                {
+                    isPosted: false,
+                    text:"Endlich werdet Ihr über die Brücke gelassen und könnt die restlichen Meter in Richtung Hügel gehen.\n"
+                            + "Dort angekommen stellt ihr fest, dass ihr einen Balken im Mobilfunknetz habt! Sofort versucht ihr ein SOS Signal abzusenden.\n" 
+                            +"Nach 5 langen Minuten ohne Regung des Handys kommt plötzlich eine “ERROR” Meldung."
+                            +"Es hat nicht funktioniert! Und der Akku ist nun auch leider leer. Ihr entscheidet euch dazu noch höher steigen, um die Wahrscheinlichkeit eines besseren Signals zu steigern.\n" 
+					        +"Ihr schaut euch um und seht den Mountain!\n"
+					        +"Was nun?\n"
+                    
+                },
+                {
+                    isPosted: false,
+                    text:"Ihr begebt euch weiter in Richtung des Mountains. Selbst die Spitze ist in dem Wald gut zu erkennen.\n"
+                            +"Nach einer Weile landet ihr auf einem richtigen Waldweg, dem folgend trifft ihr wieder auf das Mädchen mit der roten Mütze und den Wolf.\n"
+                            +"Diese sind über etwas gebeugt, jedoch als sie euch hören rennen sie wieder weg.\n\n"
+                            +"Ihr erkennt einen Safe. Neben dem Safe steht wieder ein Korb des Mädchens.\n\Ihr erhält:"
+                            +"\nBrot +3\nCookies +5\nBier +2"
+                },
+                {
+                    isPosted: false,
+                    text:"Ihr begebt euch weiter in Richtung des Mountains. Selbst die Spitze ist in dem Wald gut zu erkennen.\n"
+                            +"Nach einer Weile landet ihr auf einem richtigen Waldweg, dem folgend trifft ihr wieder auf das Mädchen mit der roten Mütze und den Wolf.\n"
+                            +"Diese sind über etwas gebeugt, jedoch als sie euch hören rennen sie wieder weg.\n\n"
+                            +"Ihr erkennt einen Safe. Neben dem Safe steht wieder ein Korb des Mädchens.\n\Ihr erhält:"
+                            +"\nBrot +3\nCookies +5\nBier +2"
+                },  
+            ],
+            onFinish: function()
+            {
+                gameInventory.addItem(gameItems.itemFactory.bread,3);
+                gameInventory.addItem(gameItems.itemFactory.cookies,5);
+                gameInventory.addItem(gameItems.itemFactory.beer,2);
                 gameProgress.getProgressStateByName("AfterHill").currentState = true;
             }
         },
@@ -182,14 +221,20 @@ module.exports = {
         {
             isActive: false,
             isFinished :false,
-            options: [],
             parts: [
                 {
                     isPosted: false,
                     text: "Ihr schaut euch den Safe näher an. Auf dem Safe ist ein bekanntes Tastenfeld zu erkennen...\n"
-						+ "In dem Körbchen waren nicht nur gute Items dabei, sondern auch ein Zettel auf dem ein Wort steht:\n"
-						+ "\n'wehatesocialgaming'\n"
+						    + "In dem Körbchen waren nicht nur gute Items dabei, sondern auch ein Zettel auf dem ein Wort steht:\n"
+						    + "\n“wehatesocialgaming”\n"
                         
+                },
+                {
+                    isPosted: false,
+                    text: "Ihr wechselt den Handyakku ohne große Komplikationen. Laut der Karte gibt es etwas am Fuße des Berges zu entdecken.\n"
+						    + "In der Hoffnung auf einen Durchbruch in euerer Reise beschließt ihr der Schatzkarte zu folgen\n"
+						    + "Was euch wohl am Ende der Schatzsuche erwartet?\n"
+                            + "\nWechselt nun bitte in den Ruin-Channel!"  
                 },
                 
             ],
@@ -202,7 +247,6 @@ module.exports = {
         {
             isActive: false,
             isFinished :false,
-            options: [],
             parts: [
                 {
                     isPosted: false,
@@ -210,6 +254,19 @@ module.exports = {
 						 +"Ihr entdeckt eine Tür... Sie ist versperrt.\n"
 						 +"Was wollt ihr tun?"
 						
+                },
+                {
+                    isPosted: false,
+                    text:"Ihr seht einen Weg in Richtung des Mountains und entdeckt ein Schild mit der Aufschrift 'Voll Krasser Lift'.\n"
+                            +"Ihr beschließt euch dem Schild zu folgen und begegnet einem Gnomen.\n\n"
+                            +"“Hallo ihr da! Möchtet ihr auf den Mountain und die schöne Aussicht sehen? \n"
+                            +"Es ist wirklich einmalig da oben! Ich biete euch an meinen Lift zu benutzen! \n\n"
+                            +"Ich werde euch 5 Fragen stellen. Beratet euch untereinander und lässt mich eure Antwort hören.\n\n"
+                            +"Ich brauche nur von euren Teamcaptain die Antwort zu hören! \n"
+                            +"Wenn mehrere Personen mit mir reden, zähle ich dies als Antwort auf die Nächsten Fragen!\n"
+                            +"Habt ihr 4 Stück falsch, dann Boxe ich euch für 10 Minuten die Lichter aus!\n\n"
+                            +"Gibt mir mit “!NEXT” das Signal zum beginnen des Quiz.”\n"
+                            +"Der Alte Gnom setzt sich auf ein Weinfass und summt wartend vor sich her."
                 },
                 
             ],
@@ -222,20 +279,18 @@ module.exports = {
         {
             isActive: false,
             isFinished :false,
-            options: [],
             parts: [
                 {
                     isPosted: false,
                     text: "'Glückwunsch! Bisher hat noch niemand meine Rätsel gelöst. \n"
-					+"Allerdings seid ihr auch die ersten die hier lang kommen. \n"
-					+"Naja viel Spaß da oben!'Ihr steigt in den Lift ein und braucht eine ganze Stunde bis ihr am Gipfel ankommt. \n"
-					+"In der Zwischenzeit befestigt ihr die Antenne am Handy und überlegt, wie ihr wohl gerettet werdet.\n"
-					+"Oben angekommen, öffnen sich die Türen des Lifts.\n"
-					+"Ein kalter Wind bläst euch entgegen und das Lichtblendet euch. \n"
-					+"Nach paar Minuten habt ihr euch an das Licht gewöhnt. \n"
-					+"Der Ausblick ist traumhaft! Notiz: Die Autoren haben kein gutes Foto gefunden, deswegen stell euch bitte eine “traumhafte” Landschaft vom Berg aus gesehen vor.Ihr habt es geschafft!\n" 
-					+"Aber nur fast. Nun das Signal senden!(Bitte eine Person “!SEND HELP” eingeben!)\n"
-					+comandPromptSendHelp	
+					        +"Allerdings seid ihr auch die ersten die hier lang kommen. \n"
+					        +"Naja viel Spaß da oben!'Ihr steigt in den Lift ein und braucht eine ganze Stunde bis ihr am Gipfel ankommt. \n"
+					        +"In der Zwischenzeit befestigt ihr die Antenne am Handy und überlegt, wie ihr wohl gerettet werdet.\n"
+					        +"Oben angekommen, öffnen sich die Türen des Lifts.\n"
+					        +"Ein kalter Wind bläst euch entgegen und das Lichtblendet euch. \n"
+					        +"Nach paar Minuten habt ihr euch an das Licht gewöhnt. \n"
+					        +"Der Ausblick ist traumhaft! Notiz: Die Autoren haben kein gutes Foto gefunden, deswegen stell euch bitte eine “traumhafte” Landschaft vom Berg aus gesehen vor.Ihr habt es geschafft!\n" 
+					        +"Aber nur fast. Nun das Signal senden!(Bitte eine Person “!NEXT” eingeben!)\n"
                 },
                 
             ],
@@ -248,12 +303,33 @@ module.exports = {
         {
             isActive: false,
             isFinished :false,
-            options: [],
             parts: [
                 {
                     isPosted: false,
-                    text:
-					+comandPromptSendHelp	
+                    text: "Voller Vorfreude endlich aus diesem Verdammten Walt zu kommen schaut ihr auf die Empfangsbalken des Nokia, um zu erkennen ob der Empfang endlich da ist und sich die Strapazen gelohnt haben.\n"
+                            +"UND……Es passiert nichts.\n"
+                            +"Das verdammte Mistding zeigt keine Veränderung. War wohl ne kack Idee auf ein Handy von vor 20 Jahren zu vertrauen.\n"
+                            +"Hätte man auch selber draufkommen können.\n"
+                            +"Ihr fragt euch, wieso zum Teufel ihr diesen ganzen Quatsch machen musstet, nur um am Ende noch Enttäuschter zu sein.\n"
+                            +"Während bei eurer Gruppe depressive Zustände herrschen, hört ihr ein lautes “EXTREME TERROR”, gefolgt von massivem Bass in der Ferne.\n\n"
+                            +"“Was geht meine Dudes, ich komm euch abholen.”, rief Gandalf mit seiner Stoner-Stimme.\n"
+                            +"Im Schein der Untergehenden Sonne seht ihr wie hinter ihm eine Kolonne von Riesen-Adlern auf euch zugeflogen kommt.\n"
+                            +"Auf dem Adler neben Gabba Gandalf erkennt ihr eine weitere bekannte Person… Den Busfahrer! Dieser grinst von einer Backe zur anderen.\n"
+                            +"Als er näher kam bemerkt ihr, dass er ziemlich high ist und komisch riecht. Ob er auch im Wald war?\n"
+                            +"Naja egal. Ihr akzeptiert einfach das ihr von den Stonern vollkommen verarscht wurdet, steigt allesamt auf die Adler und fliegt mit denen in Richtung Sonnenuntergang.\n"
+                            +"Der Busfahrer gibt euch eure Smartphones zurück.\n\n"
+                            +"“Ich hoffe ihr hattet alle einen freshen Ausflug! Tut mir leid, aber als ich Gandalf sah, wusste ich, dass ich unbedingt mit ihm einen Puffen musste. Hab mich zum Gandalf gebeamt um die Vögel zu holen, leider wurde ich etwas aufgehalten… :)”\n\n"
+                            +"Seine Entschuldigung wurde durch eine riesige Explosion unterbrochen.\n"
+                            +"Ihr dreht euch um und seht einen riesigen Krater, wo vorher der Wald vorzufinden war."
+                            + commandPromptNext	
+                },
+                {
+                    isPosted: false,
+                    text:"Vielen Dank für das spielen dieses Spiels. \n"
+                            +"Wir hoffen Ihr hattet Spaß und konntet ein wenig über unsere dummen Witze Lachen.\n"
+                            +"In kürze (2 Minuten) wird der Server resettet.\n" 
+                            +"Danach könnt Ihr das Spiel erneut spielen (oder auch nicht) oder Platz für eine andere Gruppe zum Testen machen. \n"
+                            +"Bis dann!"	
                 },
                 
             ],
