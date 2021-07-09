@@ -4,8 +4,7 @@ const gameStoryProgress = require('../../gameLogic/GameStoryProgress.js');
 const gameStoryBits = require('../../gameLogic/GameStoryBits.js');
 const gameChannels = require('../../gameLogic/GameChannels.js');
 const gameUsers = require('../../gameLogic/GameUsers.js');
-const commandPromptNext= "\n\n Bitte ein Person '!Next' eingeben!";
-const commandPromptQuiz="\n\n Zum beginnen '!Quiz' eingeben";
+const safe = require('./safe.js');
 
 
 module.exports = {
@@ -40,8 +39,11 @@ module.exports = {
         {
             if(gameStoryBits.storyBits.bridgePuzzle.isActive)
             {
-                const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.bridgePuzzle)
-                return message.channel.send(bitPart.text);
+                if(gameStoryBits.storyBits.bridgePuzzle.parts[2].isPosted === false)
+                {
+                    const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.bridgePuzzle)
+                    return message.channel.send(bitPart.text);
+                }
             }
         }
         else if(channelId === gameChannels.channelFactory.hill.id)
@@ -49,19 +51,32 @@ module.exports = {
             if(gameStoryBits.storyBits.hillPath.isActive)
             {
                 const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.hillPath)
+                if(gameStoryBits.storyBits.hillPath.isFinished)
+                {
+                    gameStoryBits.storyBits.openingSafe.isActive = true;
+                }
                 return message.channel.send(bitPart.text);
 			}
-            else(gameStoryBits.storyBits.openingSafe.isActive)
+            else 
             {
-                const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.openingSafe)
-                return message.channel.send(bitPart.text);
-			}
+                if(gameStoryBits.storyBits.openingSafe.isFinished === false)
+                {
+                    
+                    if(safe.isActive === false)
+                    {
+                        safe.isActive = true;
+                        const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.openingSafe)
+                        return message.channel.send(bitPart.text);
+                    }
+                    
+                }
+            }
         }
 		else if(channelId === gameChannels.channelFactory.mountain.id)
         {
-            if(gameStoryBits.storyBits.finishPinish.isActive)
+            if(gameStoryBits.storyBits.finishGame.isActive)
             {
-                const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.finishPinish)
+                const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.finishGame)
                 return message.channel.send(bitPart.text);		
 			}
           

@@ -2,6 +2,7 @@ const gameProgress = require('./GameStoryProgress.js');
 const gameChannels = require('./GameChannels.js');
 const gameInventory = require('./GameInventory.js');
 const gameItems = require('./GameItem.js');
+const { toArray } = require('lodash');
 
 
 const commandPromptNext = "\n\n(Bitte eine Person einmal '!NEXT' eingeben!)";
@@ -110,7 +111,6 @@ module.exports = {
                             +"Mit seiner Pfeife im Mundwinkel beugt er sich zu euch: \n\n'Seid ihr Partylauch? Kennen wir uns? Wo sind die anderen Pizzagesichter?'\n\nEr schaut sich um und pafft an der Pfeife:\n\n'Hmm. Die Luschen. Was wollt ihr?'"
                             + commandPromptNext,
                 },
-                //Hier Denis fragen, ob man die Verbindung mit next-command machen muss!!
                 {
                     isPosted: false,
                     text: "Ihr versucht Eure Situation zu erklären... Jedoch scheint es nicht so, als ob er euch wirklich zuhört... \n\nAus dem nichts streckt euch Gandalf folgendes ein 'Nokia 3410' entgegen."
@@ -134,7 +134,6 @@ module.exports = {
                 gameProgress.getProgressStateByName("MetGandalf").currentState = true;
             }
         },
-        //Hier Denis fragen, ob nicht Verbindung zu next gemacht werden muss, damit das nächste Szenario anfangen kann
         bridgePuzzle: 
         {
             isActive: false,
@@ -163,14 +162,17 @@ module.exports = {
                     text: "Ihr setzt euren Weg fort und folgt den Hinsweisen der Gruppe.\n\n"
                             +"Eure Party kommt an der Brücke an, aber noch bevor ihr den ersten Schritt auf die Steinerne Brücke setzten könnt, springt ein Schatten von hinten über euch.\n\n"
                             +"Es ist Käpt’n Balu, nur diesmal ohne seine Tollkühne Crew. Das Fehlen der Crew ändert aber nicht, dass Balu euch im Weg steht.\n\n"
-                            +"“Nur wenn Ihr mein Rätzel Lösen könnt, gewähre ich euch den Weg über meine Brücke.”"
-                            +commandPromptNext, //Hier sollte ein command hin, dass zum Quiz führt, oder soll das Quiz in das next-command unter forest?
-                                                //wie füge ich ein, dass der Bot erkennt, an welchem Punkt im forest ich bin?
+                            +"“Nur wenn Ihr mein Rätsel Lösen könnt, gewähre ich euch den Weg über meine Brücke.”"
+                            +commandPromptNext,
                 },
                 {
                     isPosted: false,
-                    text: "Yes, geschafft! Ihr könnt über die Brücke und diese kleine Pause hat euch gut getan.\n\n Ihr setzt euren Weg fort. Wechselt nun in den Hill-Channel!"
-                },
+                    text: "“Ich habe zwei Flügel und kann nicht fliegen.\n"
+                            +"Hab einen Rücken und kann nicht liegen.\n"
+                            +"Ich habe ein Bein und kann nicht stehen.\n"
+                            +"Trag eine Brille und kann nicht sehen.\n"
+                            +"Was bin ich?”\n Gibt die Lösung als Command ein! (z.B. !Brücke)"
+                }
             ],
             onFinish: function()
             {
@@ -184,7 +186,7 @@ module.exports = {
             parts: [
                 {
                     isPosted: false,
-                    text:"Endlich werdet Ihr über die Brücke gelassen und könnt die restlichen Meter in Richtung Hügel gehen.\n"
+                    text:"Ihr geht die restlichen Meter in Richtung Hügel.\n"
                             + "Dort angekommen stellt ihr fest, dass ihr einen Balken im Mobilfunknetz habt! Sofort versucht ihr ein SOS Signal abzusenden.\n" 
                             +"Nach 5 langen Minuten ohne Regung des Handys kommt plötzlich eine “ERROR” Meldung."
                             +"Es hat nicht funktioniert! Und der Akku ist nun auch leider leer. Ihr entscheidet euch dazu noch höher steigen, um die Wahrscheinlichkeit eines besseren Signals zu steigern.\n" 
@@ -199,15 +201,8 @@ module.exports = {
                             +"Diese sind über etwas gebeugt, jedoch als sie euch hören rennen sie wieder weg.\n\n"
                             +"Ihr erkennt einen Safe. Neben dem Safe steht wieder ein Korb des Mädchens.\n\Ihr erhält:"
                             +"\nBrot +3\nCookies +5\nBier +2"
-                },
-                {
-                    isPosted: false,
-                    text:"Ihr begebt euch weiter in Richtung des Mountains. Selbst die Spitze ist in dem Wald gut zu erkennen.\n"
-                            +"Nach einer Weile landet ihr auf einem richtigen Waldweg, dem folgend trifft ihr wieder auf das Mädchen mit der roten Mütze und den Wolf.\n"
-                            +"Diese sind über etwas gebeugt, jedoch als sie euch hören rennen sie wieder weg.\n\n"
-                            +"Ihr erkennt einen Safe. Neben dem Safe steht wieder ein Korb des Mädchens.\n\Ihr erhält:"
-                            +"\nBrot +3\nCookies +5\nBier +2"
-                },  
+                            +commandPromptNext,
+                } 
             ],
             onFinish: function()
             {
@@ -226,7 +221,8 @@ module.exports = {
                     isPosted: false,
                     text: "Ihr schaut euch den Safe näher an. Auf dem Safe ist ein bekanntes Tastenfeld zu erkennen...\n"
 						    + "In dem Körbchen waren nicht nur gute Items dabei, sondern auch ein Zettel auf dem ein Wort steht:\n"
-						    + "\n“wehatesocialgaming”\n"
+						    + "\n“socialgaming”\n"
+                            + "\n(Zum eingeben des Codes, das Command '!SAFE [Code]' eingeben!)\n"
                         
                 },
                 {
@@ -299,7 +295,7 @@ module.exports = {
                 gameProgress.getProgressStateByName("AfterQuiz").currentState = true;
             }
         },
-		finishPinish: 
+		finishGame: 
         {
             isActive: false,
             isFinished :false,
@@ -343,8 +339,13 @@ module.exports = {
             return [
                 this.crashWelcome,
                 this.forestPath,
-                this.bridgePuzzle,
                 this.cabinWelcome,
+                this.bridgePuzzle,
+                this.hillPath,
+                this.openingSafe,
+                this.doingRuin,
+                this.doingQuiz,
+                this.finishGame
             ]
         }
     },
@@ -363,44 +364,58 @@ module.exports = {
     {
         if(channelId === gameChannels.channelFactory.crash.id)
         {
-            if(gameProgress.getProgressStateByName("AfterCrash").currentState == false)
+            if(gameProgress.getProgressStateByName("AfterCrash").currentState === false)
             {
                 return this.storyBits.crashWelcome;
             }
         }
-        else if(channelId === gameChannels.channelFactory.camp.id)
+        else if(channelId === gameChannels.channelFactory.cabin.id)
         {
-            
+            if(gameProgress.getProgressStateByName("MetGandalf").currentState === false)
+            {
+                return this.storyBits.cabinWelcome;
+            }
         }
         else if(channelId === gameChannels.channelFactory.forest.id)
         {
-            if(gameProgress.getProgressStateByName("ForestPathDone").currentState == false)
+            if(gameProgress.getProgressStateByName("ForestPathDone").currentState === false)
             {
                 return this.storyBits.forestPath;
             }
-        }
-        else if(channelId === gameChannels.channelFactory.clearing.id)
-        {
-            if(gameProgress.getProgressStateByName("").currentState == false)
+            else
             {
-
+                if(gameProgress.getProgressStateByName("FinishedBridgePuzzle").currentState === false 
+                && gameProgress.getProgressStateByName("MetGandalf").currentState === true)
+                {
+                    return this.storyBits.bridgePuzzle;
+                }
             }
-        }
-        else if(channelId === gameChannels.channelFactory.cabin.id)
-        {
-
         }
         else if(channelId === gameChannels.channelFactory.hill.id)
         {
+            if(gameProgress.getProgressStateByName("AfterHill").currentState === false)
+            {
+                return this.storyBits.hillPath;
+            }
+            else if(gameProgress.getProgressStateByName("OpenedSafe").currentState === false)
+            {
+                return this.storyBits.openingSafe;
+            }
 
         }
         else if(channelId === gameChannels.channelFactory.ruin.id)
         {
-
+            if(gameProgress.getProgressStateByName("AfterHill").currentState === false)
+            {
+                return this.storyBits.hillPath;
+            }
         }
         else if(channelId === gameChannels.channelFactory.mountain.id)
         {
-
+            if(gameProgress.getProgressStateByName("AfterHill").currentState === false)
+            {
+                return this.storyBits.hillPath;
+            }
         }
 
         return null;
