@@ -52,23 +52,7 @@ module.exports = {
                 }
             }    
         }
-        else if(channelId === gameChannels.channelFactory.clearing.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.cabin.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.hill.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.ruin.id)
-        {
-          
-        }
-
-        return message.channel.send('Das Right-Command hat hier keine Funktion!\nVersuchst du an einem bereits abgeschlossenen Voting teilzunehmen? Tut mir leid, aber die Vergangenheit bleibt Vergangenheit!');
+        return message.channel.send('Das Left-Command hat hier keine Funktion!\n'
+                                    +'Versuchst du an einem bereits abgeschlossenen Voting teilzunehmen? Tut mir leid, aber die Vergangenheit bleibt Vergangenheit!');
 	},
 };

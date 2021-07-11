@@ -1,7 +1,6 @@
 const roles = require('../../gameLogic/RoleClaim');
 const gameChannels = require('../../gameLogic/GameChannels');
 
-const impostor = '😄';
 
 module.exports = {
 	name: 'start',
@@ -9,7 +8,7 @@ module.exports = {
 	async execute(message) {
         if(message.channel.name !== gameChannels.channelFactory.lobby.name)
         {
-          return message.channel.send("You cant start the game from this channel!");
+          return message.channel.send("Du kannst nicht aus diesem Channel starten!");
         }
 
         let emb = await message.channel.send({embed: startEmbed});
@@ -61,27 +60,21 @@ const startEmbed = {
       },
       {
         "name": roles.allGameRoles[0].emoji + "  " + "Informatik-Student",
-        "value": "Fähigkeit: xxxx"
       },
       {
         "name": roles.allGameRoles[1].emoji + "  " + "Ingenieur-Student",
-        "value": "Fähigkeit: xxxx"
       },
       {
         "name": roles.allGameRoles[2].emoji + "  " + "Medizin-Student",
-        "value": "Fähigkeit: xxxx"
       },
       {
         "name": roles.allGameRoles[3].emoji + "  " + "Medizin-Student",
-        "value": "Fähigkeit: xxxx"
       },
       {
         "name": roles.allGameRoles[4].emoji + "  " + "Sport-Student",
-        "value": "Fähigkeit: xxxx"
       },
       {
         "name": roles.allGameRoles[5].emoji + "  " + "Jura-Student",
-        "value": "Fähigkeit: xxxx"
       }
     ]
   };
