@@ -57,7 +57,7 @@ module.exports = {
         return false;
     },
     
-
+    
     energyCost : 10,
     occupationTime : 60000 * 5, // 60000 ms = 1 min * 5 = 5min 
     fireTime : 60000 * 8, //60000 ms = 1 min * 8 = 8 min
