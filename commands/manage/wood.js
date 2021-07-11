@@ -28,17 +28,17 @@ module.exports = {
         // get wood
         if(channelId === gameChannels.channelFactory.forest.id)
         {
-            gameInventory.addItem("wood");
+            gameInventory.addItem(gameItems.itemFactory.wood);
             return message.channel.send(`Success! Du hast Holz gesammelt und bekommst:`
-            + wood.name
-            + `\n ${wood.description}`);
+            + gameItems.getItemByName("wood").name
+            + `\n ${gameItems.getItemByName("wood").description}`);
         }
         else if(channelId === gameChannels.channelFactory.lake.id)
         {
-            gameInventory.addItem("wood");
+            gameInventory.addItem(gameItems.itemFactory.wood);
             return message.channel.send(`Success! Du hast Holz gesammelt und bekommst:`
-            + wood.name
-            + `\n ${wood.description}`);
+            + gameItems.getItemByName("wood").name
+            + `\n ${gameItems.getItemByName("wood").description}`);
         }
 
         //gameStoryProgress.getProgressStateByName("MadeFire").currentState = true;
@@ -47,8 +47,8 @@ module.exports = {
 
     isChannelValid: function(channelId)
     {
-        if(channelId === gameChannels.channelFactory.camp.id
-            || channelId === gameChannels.channelFactory.forest.id
+        if(
+            channelId === gameChannels.channelFactory.forest.id
             || channelId === gameChannels.channelFactory.lake.id)
         {
             return true;
