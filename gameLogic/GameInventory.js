@@ -32,7 +32,7 @@ module.exports = {
     {
         if(isNaN(amount) || amount < 0)
         {
-            console.error("You cant check an amount in the inventory with a value smaller 0");
+            console.error("Du kannst kein Inventar checken, wenn es nix vorhanden ist!");
             return false;
         }
 

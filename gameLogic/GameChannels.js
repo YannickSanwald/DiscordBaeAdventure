@@ -1,6 +1,8 @@
 const lobbyPin = {
-    "title": "Welcome Message",
-    "description": "Ich bin die Lobby Welcome Nachricht! Hallo!",
+    "title": "Hi!",
+    "description": "Schön, dass Ihr entschieden habt, dieses Spiel zu spielen! Dies ist ein kurzes Multi-Player Textadventure-Game.\n"
+                    +"Wenn alle da sind, gibt das Kommando “!START” ein. Danach müsst ihr in den Crash-Channel wechseln, um zu beginnen.\n\n"
+                    +"Viel Erfolg!",
     "color": 123335,
     "fields": [{}]
 };
