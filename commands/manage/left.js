@@ -26,21 +26,26 @@ module.exports = {
                 {
                     forestPathPuzzle.isMakingDecision = true;
                     forestPathPuzzle.forestPathCounter= 1;
-                    return message.channel.send("In der Ferne könnt ihr eine Lichtung erkennen auf die ihr drauf zugeht. Auf dem Weg trefft ihr ein kleines Mädchen mit einer roten Mütze und einen Wolf, die vertieft in ein Gespräch sind." 
-                           +"\n\nWollt ihr sie ansprechen?"
-                           + commandPromptYesNo)
+                    return message.channel.send("In der Ferne könnt ihr eine Lichtung erkennen auf die ihr drauf zugeht.\n"
+                            +"Dort angekommen trefft ihr auf ein kleines Mädchen mit einer roten Mütze und einen Wolf, die vertieft in ein Gespräch sind." 
+                            +"\n\nWollt ihr sie ansprechen?\n\n"
+                            + commandPromptYesNo)
                 }
                 else if(forestPathPuzzle.forestPathCounter === 1)
                 {
                     forestPathPuzzle.forestPathCounter=2;
-                    return message.channel.send("Nach ca. 2h laufen, erscheint plötzlich ein wildes Bambi aus dem Gebüsch, welches euch freundlicherweise darauf hinweist, dass euer Orientierungssinn das Allerletzte ist. Aus Mitleid bietet Bambi euch an den richtigen Weg zu weisen. Am Ende des Weges seht ihr, wie Bambi sich auf den Weg zurück macht."
+                    return message.channel.send("Nach ca. 2h laufen, erscheint plötzlich ein wildes Bambi aus dem Gebüsch, welches euch freundlicherweise darauf hinweist, dass euer Orientierungssinn das Allerletzte ist.\n"
+                            +"Aus Mitleid bietet Bambi euch an den richtigen Weg zu weisen.\n\n"
+                            +"Am Ende des Weges dreht ihr euch um und seht, wie Bambi sich bereits auf den Weg zurück macht."
                             + gameStoryBits.storyBits.forestPath.parts[2].text);
                 }
                 else if(forestPathPuzzle.forestPathCounter === 2)
                 {
                     forestPathPuzzle.forestPathCounter=1;
-                    return message.channel.send("Wieder einmal ein langer langweiliger Weg. So langsam fühlt ihr euch mehr wie auf einem Wanderurlaub wie einer Suche nach überlebenswichtigen Gegenständen. Ihr beginnt euch schon zu wundern wie lange der Weg diesmal dauern soll, bis ihr plötzlich ein lautes Seufzen aus dem Gebüsch hört. Es ist Bambi, das völlig entsetzt mit eurer Unfähigkeit ist. 'Ihr habt gerade erfolgreich den Weg in die falsche Richtung genommen' sagt es höhnend. Gefolgt von den Worten: 'Willkommen an der Gabelung 2'."
-                    + commandPromptLeftRight);
+                    return message.channel.send("Wieder einmal ein langer langweiliger Weg.\n"
+                            +"So langsam fühlt ihr euch mehr wie auf einem Wanderurlaub wie einer Suche nach überlebenswichtigen Gegenständen. Ihr beginnt euch schon zu wundern wie lange der Weg diesmal dauern soll, bis ihr plötzlich ein lautes Seufzen aus dem Gebüsch hört.\n\n"
+                            +"Es ist Bambi, das völlig entsetzt mit eurer Unfähigkeit ist. 'Ihr habt gerade erfolgreich den Weg in die falsche Richtung genommen' sagt es höhnend. Gefolgt von den Worten: 'Willkommen an der Gabelung 2'."
+                            + commandPromptLeftRight);
                 }
                 else if(forestPathPuzzle.forestPathCounter===3)
                 {
@@ -50,23 +55,7 @@ module.exports = {
                 }
             }  
         }
-        else if(channelId === gameChannels.channelFactory.clearing.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.cabin.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.hill.id)
-        {
-           
-        }
-        else if(channelId === gameChannels.channelFactory.ruin.id)
-        {
-          
-        }
-
-        return message.channel.send('Das Left-Command hat hier keine Funktion!\nVersuchst du an einem bereits abgeschlossenen Voting teilzunehmen? Tut mir leid, aber die Vergangenheit bleibt Vergangenheit!');
+        return message.channel.send('Das Left-Command hat hier keine Funktion!\n'
+                                    +'Versuchst du an einem bereits abgeschlossenen Voting teilzunehmen? Tut mir leid, aber die Vergangenheit bleibt Vergangenheit!');
 	},
 };
