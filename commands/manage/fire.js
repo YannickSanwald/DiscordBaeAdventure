@@ -82,7 +82,7 @@ module.exports = {
 
     isFireInCabin:
     {
-        value:false,
+        value:true,
         timeStamp:0,
     },
 

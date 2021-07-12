@@ -31,6 +31,10 @@ module.exports = {
                 return message.channel.send("Ihr habt kein Feuer im Camp gemacht." + fireHelpString);
             }
         }
+        else if (channelId === gameChannels.channelFactory.cabin)
+        {
+            return this.cookItem(args[0])
+        }
         else if(channelId=== gameChannels.channelFactory.hill)
         {
             if(fire.isFireInHill.value === true)
@@ -86,6 +90,18 @@ module.exports = {
         if(itemName === gameItems.itemFactory.fish.name)
         {
             return gameItems.itemFactory.cookedFish;
+        }
+        else if(itemName === gameItems.itemFactory.herbs.name)
+        {
+            return gameItems.itemFactory.cookedHerbs;
+        }
+        else if(itemName === gameItems.itemFactory.berries.name)
+        {
+            return gameItems.itemFactory.cookedBerries;
+        }
+        else if(itemName === gameItems.itemFactory.oats.name)
+        {
+            return gameItems.itemFactory.cookedOats;
         }
     },
 };

@@ -155,6 +155,7 @@ module.exports = {
             this.itemFactory.fish,
             this.itemFactory.herbs,
             this.itemFactory.oats,
+            this.itemFactory.berries,
         ]
     },
 
