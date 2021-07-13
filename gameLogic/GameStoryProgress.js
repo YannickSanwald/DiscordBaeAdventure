@@ -41,6 +41,10 @@ module.exports = {
             name: "FinishedBridgePuzzle",
             currentState: false,
         },
+        {
+            name: "FoundKey",
+            currentState: false,
+        }
 
 // ================================= CHAPTER 3 =================================
 
@@ -52,6 +56,10 @@ module.exports = {
             name: "OpenedSafe",
             currentState: false,
         },
+        {
+            name: "OpenedDoor",
+            currentState: false,
+        }
         {
             name: "AfterRuin",
             currentState: false,
