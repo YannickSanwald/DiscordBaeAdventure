@@ -130,7 +130,7 @@ const checkIfUserIsInVotingAndCommandIsValid = function(message,command)
 	{
 		if(storyBit.isFinished === false && storyBit.isActive === true)
 		{
-			if(command === "!yes" || command === "!no" || command === "next" || command === "left" || command === "right")
+			if(command === "yes" || command === "no" || command === "next" || command === "left" || command === "right" || command === "nase"|| command === "safe")
 			{
 				return true;
 			}
