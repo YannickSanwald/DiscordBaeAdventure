@@ -22,16 +22,16 @@ module.exports = {
                     + "\"Lasst uns doch an diesem Camp-Adventure im Wald teilnehmen\“\n." 
                     +"Eine ganze Woche weg von Stress und Hektik aus dem Alltag. Ihr freut euch, unterhaltet euch"
                     +"und plötzlich ist der Spaß vorbei.\n"
-                    +"Der Bus bleibt liegen.\n"
-                    +"Es ist gerade 18 Uhr, die Dämmerung hat begonnen.\n" 
+                    +"Der Bus bleibt liegen. Das Netz ist auch weg...\n"
+                    +"Es ist gerade 18 Uhr, die Dämmerung hat begonnen.\n https://i.imgur.com/UUSMI.jpeg" 
                     + commandPromptNext
                 },
                 {
                     isPosted: false,
-                    text: "'Heheheheheheheeeee.....Ich möchte ein Spiel mit Euch spielen!!'\n\n"
-                    +"Ihr seid verwirrt. Ist das... Echt jetzt?! Die Jigsaw-Puppe!? Er hebt mit seinem Fahrrad vom Boden ab und schwebt auf die Motorhaube des Busses.\n"
+                    text: "'Heheheheheheheeeee.....Ich möchte ein Spiel mit Euch spielen!!'\n\n https://media1.tenor.com/images/c1250510171a50e4eeccbad533b77dbf/tenor.gif?itemid=18403384"
+                    +"Ihr seid verwirrt. Ist das... Echt jetzt?! Die Saw-Puppe!? Er hebt mit seinem Fahrrad vom Boden ab und schwebt auf die Motorhaube des Busses.\n"
                     +"'Heheheheheee... Ich heiße Euch herzlich Willkommen auf meinem neuen Grundstück! Gerade wurde mir schon langweilig und ich wollte auf die Suche nach Opfern gehen. Wunderschön, dass ich Euch gefunden habe!\n"
-                    +"Ihr habt 72 Stunden Zeit aus diesem Wald zu kommen - oder ihr werdet sterben! In 72 Stunden wird hier alles zu Boden gerodet, weil mein neues Schlachthaus hier gebaut wird. Ich feiere dies mit einem wunderschönen Bomben-Feuerwerk! Nichts geht schneller! Heheheheheheeee... Vielleicht könnt ihr es schaffen. Viel Spaß!'\n\n"
+                    +"https://media1.tenor.com/images/c58f9ba25db7885774eedbaa52c6b8c0/tenor.gif?itemid=15725646 \n\nIhr habt 72 Stunden Zeit aus diesem Wald zu kommen - oder ihr werdet sterben! In 72 Stunden wird hier alles zu Boden gerodet, weil mein neues Schlachthaus hier gebaut wird. Ich feiere dies mit einem wunderschönen Bomben-Feuerwerk! Nichts geht schneller! Heheheheheheeee... Vielleicht könnt ihr es schaffen. Viel Spaß!'\n\n"
                     +"Weg war er. Manche von euch haben versucht ihn mit dem Handy zu filmen, jedoch sind diese verschwunden. Auch die anderen, die aus dem Schock kommen, suchen ihre Handys... vergebens. Ihr schaut euch gegenseitig an. Jeder von euch denkt dasselbe: 'WTF?'.\n\n"
                     +commandPromptNext
                 },
@@ -64,23 +64,25 @@ module.exports = {
                 {
                     isPosted: false,
                     text: "Da es hier nichts Interessantes mehr gibt, geht ihr in den Wald. Nach bisschen Laufen kommt ihr an eine Gabelung.\n"
+                        +"https://i.imgur.com/SVlvaJU.jpeg \n"
                         +"Welchen Weg wählt ihr?\n\n"
                         +commandPromptLeftRight,
                 },
                 {
                     isPosted: false,
                     text: "Der Weg teilt sich erneut. Wo lang wollt ihr gehen?"
+                            +"https://i.imgur.com/KDhdeM0.jpeg \n"
                             +commandPromptLeftRight,
                 },
                 {
                     isPosted: false,
                     text: "Ihr seid nun an einer dritten Gabelung angekommen.\n"
-                        +"Welchen weg nehmt ihr jetzt?\n\n"
+                        +"Welchen weg nehmt ihr jetzt?\n\n https://i.imgur.com/KaEZ0XU.jpeg"
                         +commandPromptLeftRight,
                 },
                 {
                     isPosted:false,
-                    text: "Ihr seid an Gabelung 4 angekommen. Wie viele es wohl noch gibt?"
+                    text: "Ihr seid an Gabelung 4 angekommen. Wie viele es wohl noch gibt?\n\n https://i.imgur.com/mTyEsQf.jpeg"
                         +commandPromptLeftRight,
                 },
                 {
@@ -109,18 +111,23 @@ module.exports = {
                             + "Plötzlich fliegt die Tür auf!"
                             + "\n\nVor euch steht ein Mann von mehr als 2 Meter. Er trägt einen spitzen Hut, ein graues Gewand voll mit Löchern und hat graue Haare.\n"
                             +"Mit seiner Pfeife im Mundwinkel beugt er sich zu euch: \n\n'Seid ihr Partylauch? Kennen wir uns? Wo sind die anderen Pizzagesichter?'\n\nEr schaut sich um und pafft an der Pfeife:\n\n'Hmm. Die Luschen. Was wollt ihr?'"
+                            +"https://imgur.com/0sShc0p \n"
                             + commandPromptNext,
                 },
                 {
                     isPosted: false,
-                    text: "Ihr versucht Eure Situation zu erklären... Jedoch scheint es nicht so, als ob er euch wirklich zuhört... \n\nAus dem nichts streckt euch Gandalf folgendes ein 'Nokia 3410' entgegen."
-                            +"\n\nNIMMT! Ich brauch das Teil nicht mehr, vielleicht könnt ihr damit was anfangen. Ah der Akku ist fast leer, hab hier keinen Strom...\n"
+                    text: "Ihr versucht eure Situation zu erklären... Jedoch scheint es nicht so, als ob er euch wirklich zuhört... \nhttps://i.imgur.com/TTMdH7r.gif \nAus dem nichts streckt euch Gandalf folgendes ein 'Nokia 3410' entgegen."
+                            +"\n\nhttps://imgur.com/YZScuTr \n\nNIMMT! Ich brauch das Teil nicht mehr, vielleicht könnt ihr damit was anfangen. Ah der Akku ist fast leer, hab hier keinen Strom...\n"
                             +"EY! Habt ihr auch Hunger? Wo ist denn der blöde Wolf, er hat mir Ziglein versprochen...'"
                             +"\n\nIhr versucht das Nokia zu benutzen, jedoch scheint ihr in diesem Tal kein Netz zu haben."
-                            +"\nGandalf dreht sich um und verschwindet im Haus. Er kommt mit einem riesigen Beutel zurück, murmelt etwas und plötzlich ist ein ganzes Fressgelage vor euch."
+                            +"\nGandalf dreht sich um und verschwindet im Haus. Er kommt mit einem riesigen Beutel zurück, murmelt etwas und plötzlich ist ein ganzes Fressgelage vor euch. https://imgur.com/7wJz1nT "
                             +"\n\n'Bedient Euch! Pott ist im Haus, das andere sollte der Wolf mitbringen... Wenn ihr bisschen baden wollt, da hinten ist ein See! Ihr seid nicht von hier, was? Komm hier ein Shortcut zu eurem Camp, könnt jederzeit herkommen wenn ihr wollt!'"
                             +"\n\nIhr erhaltet:\n"
                             +"\nNokia +1\nFisch +6\nBrot +3\nMaiskolben +3\nBier +6\nHolz +5",
+                },
+                {
+                    isPosted: false,
+                    text: "Wenn ihr weitergehn wollt, wechselt jeweils in den Forest- oder Lake-Channel!",
                 }
 
             ],
@@ -159,7 +166,7 @@ module.exports = {
                 },
                 {
                     isPosted: false,
-                    text: "Ihr setzt euren Weg fort und folgt den Hinsweisen der Gruppe.\n\n"
+                    text: "Ihr setzt euren Weg fort und folgt den Hinweisen der Gruppe.\n\n"
                             +"Eure Party kommt an der Brücke an, aber noch bevor ihr den ersten Schritt auf die Steinerne Brücke setzten könnt, springt ein Schatten von hinten über euch.\n\n"
                             +"Es ist Käpt’n Balu, nur diesmal ohne seine Tollkühne Crew. Das Fehlen der Crew ändert aber nicht, dass Balu euch im Weg steht.\n\n"
                             +"“Nur wenn Ihr mein Rätsel Lösen könnt, gewähre ich euch den Weg über meine Brücke.”"
@@ -190,7 +197,7 @@ module.exports = {
                             + "Dort angekommen stellt ihr fest, dass ihr einen Balken im Mobilfunknetz habt! Sofort versucht ihr ein SOS Signal abzusenden.\n" 
                             +"Nach 5 langen Minuten ohne Regung des Handys kommt plötzlich eine “ERROR” Meldung."
                             +"Es hat nicht funktioniert! Und der Akku ist nun auch leider leer. Ihr entscheidet euch dazu noch höher steigen, um die Wahrscheinlichkeit eines besseren Signals zu steigern.\n" 
-					        +"Ihr schaut euch um und seht den Mountain!\n"
+					        +"Ihr schaut euch um und seht den Mountain!\n https://imgur.com/5mAvLvJ \n"
 					        +"Was nun?\n"
                     
                 },
@@ -219,7 +226,7 @@ module.exports = {
             parts: [
                 {
                     isPosted: false,
-                    text: "Ihr schaut euch den Safe näher an. Auf dem Safe ist ein bekanntes Tastenfeld zu erkennen...\n"
+                    text: "Ihr schaut euch den Safe näher an. Auf dem Safe ist ein bekanntes Tastenfeld zu erkennen...\n https://i.imgur.com/XuM8GCN.jpeg \n"
 						    + "In dem Körbchen waren nicht nur gute Items dabei, sondern auch ein Zettel auf dem ein Wort steht:\n"
 						    + "\n“socialgaming”\n"
                             + "\n(Zum eingeben des Codes, das Command '!SAFE [Code]' eingeben!)\n"
@@ -247,7 +254,7 @@ module.exports = {
                 {
                     isPosted: false,
                     text: "Nach langem Fußmarsch entdeckt ihr dem Eingang einer Ruine. Ihr nehmt euch eine Fackel und beginnt die Dunkle Ruine zu erkunden.\n"
-						 +"Ihr entdeckt eine Tür... Sie ist versperrt.\n"
+						 +"Ihr entdeckt eine Tür... Sie ist versperrt.\n https://imgur.com/ZJAyXGt \n"
 						 +"Was wollt ihr tun?"
 						
                 },
@@ -257,11 +264,10 @@ module.exports = {
                             +"Ihr beschließt euch dem Schild zu folgen und begegnet einem Gnomen.\n\n"
                             +"“Hallo ihr da! Möchtet ihr auf den Mountain und die schöne Aussicht sehen? \n"
                             +"Es ist wirklich einmalig da oben! Ich biete euch an meinen Lift zu benutzen! \n\n"
-                            +"Ich werde euch 5 Fragen stellen. Beratet euch untereinander und lässt mich eure Antwort hören.\n\n"
-                            +"Ich brauche nur von euren Teamcaptain die Antwort zu hören! \n"
-                            +"Wenn mehrere Personen mit mir reden, zähle ich dies als Antwort auf die Nächsten Fragen!\n"
-                            +"Habt ihr 4 Stück falsch, dann Boxe ich euch für 10 Minuten die Lichter aus!\n\n"
-                            +"Gibt mir mit “!NEXT” das Signal zum beginnen des Quiz.”\n"
+                            +"Ich habe allerdings Fragen an euch auf diesem Blatt notiert: https://forms.gle/j1zMmc2DuDssxJtV9 \n\n"
+                            +"Jede Antwort gibt euch einen Buchstaben! \n"
+                            +"Notiert euch die Reihenfolge!\n"
+                            +"Gibt mir mit “!Quiz [Codewort]” die Lösung.”\n"
                             +"Der Alte Gnom setzt sich auf ein Weinfass und summt wartend vor sich her."
                 },
                 
@@ -282,11 +288,7 @@ module.exports = {
 					        +"Allerdings seid ihr auch die ersten die hier lang kommen. \n"
 					        +"Naja viel Spaß da oben!'Ihr steigt in den Lift ein und braucht eine ganze Stunde bis ihr am Gipfel ankommt. \n"
 					        +"In der Zwischenzeit befestigt ihr die Antenne am Handy und überlegt, wie ihr wohl gerettet werdet.\n"
-					        +"Oben angekommen, öffnen sich die Türen des Lifts.\n"
-					        +"Ein kalter Wind bläst euch entgegen und das Lichtblendet euch. \n"
-					        +"Nach paar Minuten habt ihr euch an das Licht gewöhnt. \n"
-					        +"Der Ausblick ist traumhaft! Notiz: Die Autoren haben kein gutes Foto gefunden, deswegen stell euch bitte eine “traumhafte” Landschaft vom Berg aus gesehen vor.Ihr habt es geschafft!\n" 
-					        +"Aber nur fast. Nun das Signal senden!(Bitte eine Person “!NEXT” eingeben!)\n"
+                            +"Wechselt nun in den Mountain-Channel!\n"
                 },
                 
             ],
@@ -300,6 +302,15 @@ module.exports = {
             isActive: false,
             isFinished :false,
             parts: [
+                {
+                    isPosted: false,
+                    text: "Oben angekommen, öffnen sich die Türen des Lifts.\n"
+					        +"Ein kalter Wind bläst euch entgegen und das Lichtblendet euch. \n"
+					        +"Nach paar Minuten habt ihr euch an das Licht gewöhnt. \n"
+					        +"Der Ausblick ist traumhaft!\n\nNotiz: Die Autoren haben kein gutes Foto gefunden, deswegen stell euch bitte eine “traumhafte” Landschaft vom Berg aus gesehen vor.Ihr habt es geschafft!\n" 
+					        +"Aber nur fast. Nun das Signal senden!\n"
+                            +commandPromptNext,
+                },
                 {
                     isPosted: false,
                     text: "Voller Vorfreude endlich aus diesem Verdammten Walt zu kommen schaut ihr auf die Empfangsbalken des Nokia, um zu erkennen ob der Empfang endlich da ist und sich die Strapazen gelohnt haben.\n"
@@ -316,7 +327,7 @@ module.exports = {
                             +"Der Busfahrer gibt euch eure Smartphones zurück.\n\n"
                             +"“Ich hoffe ihr hattet alle einen freshen Ausflug! Tut mir leid, aber als ich Gandalf sah, wusste ich, dass ich unbedingt mit ihm einen Puffen musste. Hab mich zum Gandalf gebeamt um die Vögel zu holen, leider wurde ich etwas aufgehalten… :)”\n\n"
                             +"Seine Entschuldigung wurde durch eine riesige Explosion unterbrochen.\n"
-                            +"Ihr dreht euch um und seht einen riesigen Krater, wo vorher der Wald vorzufinden war."
+                            +"Ihr dreht euch um und seht einen riesigen Krater, wo vorher der Wald vorzufinden war.\n https://imgur.com/0dBkh7Z \n"
                             + commandPromptNext	
                 },
                 {
@@ -405,16 +416,20 @@ module.exports = {
         }
         else if(channelId === gameChannels.channelFactory.ruin.id)
         {
-            if(gameProgress.getProgressStateByName("AfterHill").currentState === false)
+            if(gameProgress.getProgressStateByName("AfterRuin").currentState === false)
             {
-                return this.storyBits.hillPath;
+                return this.storyBits.doingRuin;
+            }
+            else if(gameProgress.getProgressStateByName("AfterQuiz").currentState === false)
+            {
+                return this.storyBits.doingQuiz;
             }
         }
         else if(channelId === gameChannels.channelFactory.mountain.id)
         {
-            if(gameProgress.getProgressStateByName("AfterHill").currentState === false)
+            if(gameProgress.getProgressStateByName("GameFinished").currentState === false)
             {
-                return this.storyBits.hillPath;
+                return this.storyBits.finishGame;
             }
         }
 
