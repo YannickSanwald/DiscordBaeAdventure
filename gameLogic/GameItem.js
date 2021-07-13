@@ -136,6 +136,7 @@ module.exports = {
             this.itemFactory.fish,
             this.itemFactory.cookedFish,
             this.itemFactory.berries,
+            this.itemFactory.cookedBerries,
             this.itemFactory.wood,
             this.itemFactory.cookies,
             this.itemFactory.bread,

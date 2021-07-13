@@ -72,6 +72,32 @@ module.exports = {
                 }
             }
         }
+        else if(channelId === gameChannels.channelFactory.ruin.id)
+        {
+            if(gameStoryBits.storyBits.doingRuin.isActive)
+            {
+                const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.doingRuin)
+                if(gameStoryBits.storyBits.doingRuin.isFinished)
+                {
+                    gameStoryBits.storyBits.doingQuiz.isActive = true;
+                }
+                return message.channel.send(bitPart.text);
+			}
+            else 
+            {
+                if(gameStoryBits.storyBits.doingQuiz.isFinished === false)
+                {
+                    
+                    if(quiz.isActive === false)
+                    {
+                        quiz.isActive = true;
+                        const bitPart = gameStoryBits.getNextPart(gameStoryBits.storyBits.doingQuiz)
+                        return message.channel.send(bitPart.text);
+                    }
+                    
+                }
+            }
+        }
 		else if(channelId === gameChannels.channelFactory.mountain.id)
         {
             if(gameStoryBits.storyBits.finishGame.isActive)
