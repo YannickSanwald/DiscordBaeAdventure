@@ -48,7 +48,7 @@ const campPin = {
         },
         {
             name: '!REST',
-            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+10+)',
+            value: 'Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+10+)',
             inline: true,
         },
     ]
@@ -95,12 +95,12 @@ const cabinPin = {
         },
         {
             name: '!REST',
-            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            value: 'Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
             inline: true,
         },
         {
             name: '!SMOKE',
-            value: ' (to-Do) Du willst mit Gandalf chillen und probierst sein Zeug. \n⚡(+50)',
+            value: 'Du willst mit Gandalf chillen und probierst sein Zeug. \n⚡(+50)',
             inline: true,
         },
     ]
@@ -168,7 +168,7 @@ const hillPin = {
         },
         {
             name: '!REST',
-            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            value: 'Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
             inline: true,
         },
     ]
@@ -207,7 +207,7 @@ const ruinPin = {
         },
         {
             name: '!REST',
-            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            value: 'Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
             inline: true,
         },
     ]
