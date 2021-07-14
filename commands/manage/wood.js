@@ -47,6 +47,13 @@ module.exports = {
             + gameItems.getItemByName("wood").name
             + `\n ${gameItems.getItemByName("wood").description}`);
         }
+        else if(channelId === gameChannels.channelFactory.cabin.id)
+        {
+            gameInventory.addItem(gameItems.itemFactory.wood);
+            return message.channel.send(`Success! Du hast Holz gesammelt und bekommst:`
+            + gameItems.getItemByName("wood").name
+            + `\n ${gameItems.getItemByName("wood").description}`);
+        }
 
         //gameStoryProgress.getProgressStateByName("MadeFire").currentState = true;
         //return message.channel.send('Du hast ein Feuer gemacht. Gratulation, auch Steinzeitmenschen haben das geschafft!');
@@ -57,7 +64,8 @@ module.exports = {
         if(
             channelId === gameChannels.channelFactory.forest.id
             || channelId === gameChannels.channelFactory.lake.id
-            || channelId === gameChannels.channelFactory.camp.id)
+            || channelId === gameChannels.channelFactory.camp.id
+            || channelId === gameChannels.channelFactory.cabin.id)
         {
             return true;
         }

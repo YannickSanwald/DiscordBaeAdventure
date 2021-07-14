@@ -33,7 +33,10 @@ module.exports = {
                 gameInventory.addItem(gameItems.itemFactory.key);
                 return message.channel.send("Ihr habt einen Schlüssel gefunden! Normalerweise öffnet man damit Türen . . .");
             } else {
-                return message.channel.send("Ihr habt hier schon alles durchsucht.")
+                gameInventory.addItem(gameItems.itemFactory.berries);
+                return message.channel.send(`Success! Du hast Beeren gesammelt und bekommst:`
+                + gameItems.getItemByName("berries").name
+                + `\n ${gameItems.getItemByName("berries").description}`);
             }
         }    
 
