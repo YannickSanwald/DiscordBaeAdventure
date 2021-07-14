@@ -34,7 +34,15 @@ module.exports = {
                 else if(forestPathPuzzle.forestPathCounter === 1)
                 {
                     forestPathPuzzle.forestPathCounter=2;
-                    return message.channel.send("TEXT MIT SIEBEN GEISLEIN"
+                    return message.channel.send("Ihr biegt rechts ab und lauft eine ganze Weile weiter durch den Wald. Auf einmal seht ihr eine mittelgroße Gruppe lautstark auf euch zu kommen.\n"
+                            +"Ihr biegt links ab und lauft eine ganze Weile weiter durch den Wald. Auf einmal seht ihr eine mittelgroße Gruppe lautstark auf euch zu kommen.\n"
+                            +"Bei genauerem Hinsehen stellt ihr etwas verwirrt fest, dass es sich bei den Leuten die immer näher kommen es sich nicht um Menschen handelt. \n"
+                            +"Es ist ein Wolf, der einen großes Säckchen Kreide mit sich herumträgt und 7 extrem aufgedrehte Geißlein.\n"
+                            +"Als ihr sie anspricht bleiben sie wie angewurzelt stehen. Nach einer viel zu langen Starre fangen sie sich an sehr betroffen und entlarvt anzusehen.\n"
+                            +"Der Blick schwenkt wieder zu dir und deiner Gruppe….Zu Sich…..Zu Euch….Zu sich bis sie langsam beginnen Schritt für Schritt in die entgegengesetzte Richtung zu gehen.\n"
+                            +"Als du erneut versuchst sie Anzusprechen nehmen sie ihre Füße in die Hand und rasen davon!\n\n"
+                            +"Verwirrt geht ihr weiter auf dem Weg, bis euch der Wald wieder sehr bekannt vorkommt.\n"
+                            +"Verdammt…ihr seid wieder zurück gelaufen und steht vor einer Kreuzung. Wohin soll es gehen?\n"
                             + gameStoryBits.storyBits.forestPath.parts[2].text);
                 }
                 else if(forestPathPuzzle.forestPathCounter === 2)

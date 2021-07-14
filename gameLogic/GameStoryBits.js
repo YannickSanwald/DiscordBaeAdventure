@@ -63,7 +63,9 @@ module.exports = {
             parts: [
                 {
                     isPosted: false,
-                    text: "Da es hier nichts Interessantes mehr gibt, geht ihr in den Wald. Nach bisschen Laufen kommt ihr an eine Gabelung.\n"
+                    text: "Da es hier nichts Interessantes mehr gibt, geht ihr in den Wald. Nach gefühlten Stundenlangem Fußmarsch fällt euch eine Brotkrumen auf dem Boden auf, mit der ihr nicht Recht was anzufangen wisst, sammelt sie aber halt ein, weil wer weiß wann es wieder was zu essen gibt.\n"
+                        +"Brot wächst ja nicht auf Bäumen. Als sie weiter ziehen fällt ihnen langsam auf das der Wald irgendwie anders wirkt.\n"
+                        +"Auf einmal kommt die Gruppe an eine Gablung."
                         +"https://i.imgur.com/SVlvaJU.jpeg \n"
                         +"Welchen Weg wählt ihr?\n\n"
                         +commandPromptLeftRight,
