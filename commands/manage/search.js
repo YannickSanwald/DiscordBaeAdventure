@@ -39,16 +39,16 @@ module.exports = {
                 return message.channel("Ihr habt hier schon alles durchsucht.")
             }
         }    
-        
-        /**else if(channelId === gameChannels.channelFactory.lake.id)
-        {
-            gameInventory.addItem(gameItems.itemFactory.wood);
-            return message.channel.send(`Success! Du hast Holz gesammelt und bekommst:`
-            + gameItems.getItemByName("wood").name
-            + `\n ${gameItems.getItemByName("wood").description}`);
-        }*/
 
-      
+        if(channelId === gameChannels.channelFactory.camp.id)
+        {
+            {
+                gameInventory.addItem(gameItems.itemFactory.berries);
+                return message.channel.send(`Ihr durchsucht die Umgebumg des Camps und findet ein paar Beeren.`
+                + gameItems.getItemByName("berries").name
+                + `\n ${gameItems.getItemByName("berries").description}`);
+            }
+        }    
 	},
 
     isChannelValid: function(channelId)

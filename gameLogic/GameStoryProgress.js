@@ -44,7 +44,7 @@ module.exports = {
         {
             name: "FoundKey",
             currentState: false,
-        }
+        },
 
 // ================================= CHAPTER 3 =================================
 
@@ -59,7 +59,7 @@ module.exports = {
         {
             name: "OpenedDoor",
             currentState: false,
-        }
+        },
         {
             name: "AfterRuin",
             currentState: false,
