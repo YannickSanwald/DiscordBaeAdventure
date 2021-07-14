@@ -20,7 +20,7 @@ module.exports = {
         {
             if(gameStoryBits.storyBits.doingQuiz.isActive)
             {
-                if(gameStoryBits.storyBits.doingRuin.parts[1].isPosted === true)
+                if(gameStoryBits.storyBits.doingRuin.parts[2].isPosted === true)
                 {
                     const rightAnswer = "socialgaming";
 
@@ -36,5 +36,6 @@ module.exports = {
         }
         return message.channel.send('Das Command hat hier keine Funktion!');
     },
+    isActive: false
 
 };

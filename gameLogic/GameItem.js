@@ -102,7 +102,7 @@ module.exports = {
         },
         corn:
         {
-            name: 'Maiskolben',
+            name: 'corn',
             description: '🌽 Ein Maiskolben. Die Körner kommen genau so raus wie sie rein kamen!\nEnergy +5 on use',
             Execute: function(userId, channelId)
             {
@@ -111,7 +111,7 @@ module.exports = {
         },
         beer:
         {
-            name: 'Bier',
+            name: 'beer',
             description: '🍺 Ein Bier. Orignal nach Deutschem Reinheitsgebot!\nEnergy +20 on use',
             Execute: function(userId, channelId)
             {
@@ -120,7 +120,7 @@ module.exports = {
         },
         key:
         {
-            name: 'Key',
+            name: 'key',
             description: '🔑 Ein Schlüssel, gefunden in der Cabin bei Gandalf. Der hat bestimmt seinen Sinn und Zweck...',
             Execute: function(userId, channelId)
             {

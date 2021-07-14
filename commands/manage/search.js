@@ -31,12 +31,9 @@ module.exports = {
             if(gameStoryProgress.getProgressStateByName("FoundKey").currentState == false) {
                 gameStoryProgress.getProgressStateByName("FoundKey").currentState = true;
                 gameInventory.addItem(gameItems.itemFactory.key);
-                message.channel.send(`Success! Du hast Holz gesammelt und bekommst:`
-            + gameItems.getItemByName("key").name
-            + `\n ${gameItems.getItemByName("key").description}`);
-                return message.channel("Ihr habt einen Schlüssel gefunden! Normalerweise öffnet man damit Türen . . .");
+                return message.channel.send("Ihr habt einen Schlüssel gefunden! Normalerweise öffnet man damit Türen . . .");
             } else {
-                return message.channel("Ihr habt hier schon alles durchsucht.")
+                return message.channel.send("Ihr habt hier schon alles durchsucht.")
             }
         }    
 

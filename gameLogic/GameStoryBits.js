@@ -262,6 +262,17 @@ module.exports = {
                 },
                 {
                     isPosted: false,
+                    text: "Ihr seht euch um und entdeckt ein Schlüsselloch mit einer Bekannten Form.\n"
+                         +"Ihr steckt den Schlüssel ein, den ihr bei Gandalf in der Cabin gefunden habt und dreht nach rechts. Zu euerm erstaunen stellt ihr fest, dass er passt!\n"
+						 +"Ob der Alte hier mehr Zeug versteckt hat? \n"
+						 +"Ihr durchsucht den Raum und findet:\n"
+                         +"Antenne    +1\n"
+                         +"Bier       +1\n"
+                         + commandPromptNext,
+						
+                },
+                {
+                    isPosted: false,
                     text:"Ihr seht einen Weg in Richtung des Mountains und entdeckt ein Schild mit der Aufschrift 'Voll Krasser Lift'.\n"
                             +"Ihr beschließt euch dem Schild zu folgen und begegnet einem Gnomen.\n\n"
                             +"“Hallo ihr da! Möchtet ihr auf den Mountain und die schöne Aussicht sehen? \n"

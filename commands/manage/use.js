@@ -10,7 +10,7 @@ module.exports = {
             return message.channel.send("No arguments given");
         }
 
-        const allItems = gameItems.GetAllItems();
+        const allItems = gameItems.getAllItems();
         for(let i = 0; i < allItems.length;i++)
         {
             if(allItems[i].name === args[0])

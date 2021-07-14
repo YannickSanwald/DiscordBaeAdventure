@@ -22,9 +22,9 @@ module.exports = {
         {
             if(gameStoryProgress.getProgressStateByName("FoundKey").currentState == true) {
                 gameStoryProgress.getProgressStateByName("OpenedDoor").currentState = true;
-                return message.channel("Ihr habt die Tür geöffnet! Gebt !next ein um das innere zu durchsuchen.");
+                return message.channel.send("Ihr habt die Tür geöffnet! Gebt !next ein um das innere zu durchsuchen.");
             } else {
-                return message.channel("Ihr habt keinen passenden Schlüssel für diese Tür. Normalerweise findet man Schlüssel in Gebäuden. . .")
+                return message.channel.send("Ihr habt keinen passenden Schlüssel für diese Tür. Normalerweise findet man Schlüssel in Gebäuden. . .")
             }
         }    
 	},

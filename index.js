@@ -108,10 +108,10 @@ client.on('message', async message => {
 	
 	if (!client.commands.has(commandName)) return; //Breche ab wenn das Command in der Collection nicht existiert
 	
-	if(!checkIfUserIsInVotingAndCommandIsValid(message,commandName))
+	/*if(!checkIfUserIsInVotingAndCommandIsValid(message,commandName))
 	{
 		message.reply(message.author.username + ": Du kannst während eines Votings keine Kommandos schicken, die nicht zum Voting gehören!")
-	}
+	}*/
 
     const command = client.commands.get(commandName); //Suche das richtige Command aus der Collection
 	try {

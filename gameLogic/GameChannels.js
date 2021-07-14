@@ -4,7 +4,7 @@ const lobbyPin = {
                     +"Wenn alle da sind, gibt das Kommando “!START” ein. Danach müsst ihr eure Rollen wählen und in den Crash-Channel wechseln, um zu beginnen.\n\n"
                     +"Viel Erfolg!",
     "color": 123335,
-    "fields": [{}]
+
 };
 
 const crashPin = {
@@ -12,7 +12,7 @@ const crashPin = {
     "description": "Damit die Story startet bitte eine Person tippen (aber nix abschicken).\n"
                     +"Ihr werdet im Laufe der Einleitung erfahren, was ihr in diesem Channel eingeben könnt.",
     "color": 123335,
-    "fields": [{}]
+
 };
 
 const campPin = {
@@ -59,7 +59,7 @@ const forestPin = {
     "description": "Damit die Story weitergeht bitte eine Person tippen (aber nix abschicken).\n"
                     +"Ihr werdet im Laufe der Story erfahren, was ihr in diesem Channel eingeben könnt.",
     "color": 123335,
-    "fields": [{}]
+
 };
 
 const cabinPin = {
@@ -171,6 +171,11 @@ const hillPin = {
             value: 'Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
             inline: true,
         },
+        {
+            name: '!NEXT',
+            value: 'Setz die Story fort!',
+            inline: true,
+        },
     ]
 };
 
@@ -218,7 +223,7 @@ const mountainPin = {
     "description": "Damit die Story weitergeht bitte eine Person tippen (aber nix abschicken).\n"
                     +"Das Ende naht...",
     "color": 123335,
-    "fields": []
+
 };
 
 module.exports = {
