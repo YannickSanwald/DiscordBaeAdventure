@@ -1,7 +1,7 @@
 const lobbyPin = {
     "title": "Hi!",
     "description": "Schön, dass Ihr entschieden habt, dieses Spiel zu spielen! Dies ist ein kurzes Multi-Player Textadventure-Game.\n"
-                    +"Wenn alle da sind, gibt das Kommando “!START” ein. Danach müsst ihr in den Crash-Channel wechseln, um zu beginnen.\n\n"
+                    +"Wenn alle da sind, gibt das Kommando “!START” ein. Danach müsst ihr eure Rollen wählen und in den Crash-Channel wechseln, um zu beginnen.\n\n"
                     +"Viel Erfolg!",
     "color": 123335,
     "fields": [{}]
@@ -9,56 +9,214 @@ const lobbyPin = {
 
 const crashPin = {
     "title": "Crashed in a forest...somewhere",
-    "description": "Hier steht die Message für den Crash des Spiels",
+    "description": "Damit die Story startet bitte eine Person tippen (aber nix abschicken).\n"
+                    +"Ihr werdet im Laufe der Einleitung erfahren, was ihr in diesem Channel eingeben könnt.",
     "color": 123335,
     "fields": [{}]
 };
 
 const campPin = {
-    "title": "We build a camp... now what?",
-    "description": "Hier steht die Message für das Camps",
+    "title": "Hier ein Camp aufbauen!",
+    "description": "Folgende Commands könnt ihr ausspielen:",
     "color": 123335,
-    "fields": []
+    "fields": [
+        {
+            name: '!FIRE ',
+            value: 'Feuer machen. ⚡(-10) \n Wood (-10)',
+            inline: true,
+        },
+        {
+            name: '!COOK [ITEM]',
+            value: 'Kochen. Braucht Feuer. \n Notiz: Nicht alles kann gekocht werden!',
+            inline: true,
+        },
+        {
+            name: '!WOOD',
+            value: 'Holz hacken. ⚡(-10)',
+            inline: true,
+        },
+        {
+            name: '!USE [ITEM]',
+            value: 'Etwas aus dem Inventar essen/trinken ⚡(+10)',
+            inline: true,
+        },
+        ,
+        {
+            name: '!SEARCH',
+            value: 'Umgebung nach etwas Nützlichem suchen. ⚡(-30)',
+            inline: true,
+        },
+        {
+            name: '!REST',
+            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+10+)',
+            inline: true,
+        },
+    ]
 };
 
 const forestPin = {
-    "title": "Crashed in a forest...somewhere",
-    "description": "Hier steht die Message für den Wald",
+    "title": "Ihr seid im Wald.",
+    "description": "Damit die Story weitergeht bitte eine Person tippen (aber nix abschicken).\n"
+                    +"Ihr werdet im Laufe der Story erfahren, was ihr in diesem Channel eingeben könnt.",
     "color": 123335,
     "fields": [{}]
 };
 
 const cabinPin = {
     "title": "A nice cabin.",
-    "description": "Hier steht die Message für die Hütte",
+    "description": "Mögliche COmmands nach der Einleitung:",
     "color": 123335,
-    "fields": []
+    "fields": [
+        {
+            name: '!FIRE ',
+            value: 'Feuer machen. ⚡(-10) \n Wood (-10)',
+            inline: true,
+        },
+        {
+            name: '!COOK [ITEM]',
+            value: 'Kochen. Braucht Feuer. \n Notiz: Nicht alles kann gekocht werden!',
+            inline: true,
+        },
+        {
+            name: '!WOOD',
+            value: 'Holz hacken. ⚡(-10)',
+            inline: true,
+        },
+        {
+            name: '!USE [ITEM]',
+            value: 'Etwas aus dem Inventar essen/trinken ⚡(+10)',
+            inline: true,
+        },
+        ,
+        {
+            name: '!SEARCH',
+            value: 'Umgebung nach etwas Nützlichem suchen. ⚡(-30)',
+            inline: true,
+        },
+        {
+            name: '!REST',
+            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            inline: true,
+        },
+        {
+            name: '!SMOKE',
+            value: ' (to-Do) Du willst mit Gandalf chillen und probierst sein Zeug. \n⚡(+50)',
+            inline: true,
+        },
+    ]
 };
 
 const lakePin = {
     "title": "Welcome to the sea-side",
-    "description": "Hier steht die Message für den Lake",
+    "description": "Eine schöne Aussicht hier. Folgende Commands gehen:",
     "color": 123335,
-    "fields": []
+    "fields": [
+        {
+            name: '!WOOD',
+            value: 'Holz hacken. ⚡(-10)',
+            inline: true,
+        },
+        {
+            name: '!USE [ITEM]',
+            value: 'Etwas aus dem Inventar essen/trinken ⚡(+10)',
+            inline: true,
+        },
+        ,
+        {
+            name: '!SEARCH',
+            value: 'Umgebung nach etwas Nützlichem suchen. ⚡(-30)',
+            inline: true,
+        },
+        {
+            name: '!FISH',
+            value: ' (to-Do) Über dem 🔥 gebraten echt was Leckeres. \n Braucht Feuer. \n⚡(-20)',
+            inline: true,
+        },
+    ]
 };
 
 const hillPin = {
-    "title": "Crashed in a forest...somewhere",
-    "description": "Hier steht die Message für den Hill",
+    "title": "Ihr seid am Hill angekommen!",
+    "description": "Das sind eure Commands:",
     "color": 123335,
-    "fields": [{}]
+    "fields": [
+        {
+            name: '!FIRE ',
+            value: 'Feuer machen. ⚡(-10) \n Wood (-10)',
+            inline: true,
+        },
+        {
+            name: '!COOK [ITEM]',
+            value: 'Kochen. Braucht Feuer. \n Notiz: Nicht alles kann gekocht werden!',
+            inline: true,
+        },
+        {
+            name: '!WOOD',
+            value: 'Holz hacken. ⚡(-10)',
+            inline: true,
+        },
+        {
+            name: '!USE [ITEM]',
+            value: 'Etwas aus dem Inventar essen/trinken ⚡(+10)',
+            inline: true,
+        },
+        ,
+        {
+            name: '!SEARCH',
+            value: 'Umgebung nach etwas Nützlichem suchen. ⚡(-30)',
+            inline: true,
+        },
+        {
+            name: '!REST',
+            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            inline: true,
+        },
+    ]
 };
 
 const ruinPin = {
-    "title": "Crashed in a forest...somewhere",
-    "description": "Hier steht die Message für die Ruine",
+    "title": "Willkommen an der Ruine!",
+    "description": "Mögliche Commands:",
     "color": 123335,
-    "fields": []
+    "fields": [
+        {
+            name: '!FIRE ',
+            value: 'Feuer machen. ⚡(-10) \n Wood (-10)',
+            inline: true,
+        },
+        {
+            name: '!COOK [ITEM]',
+            value: 'Kochen. Braucht Feuer. \n Notiz: Nicht alles kann gekocht werden!',
+            inline: true,
+        },
+        {
+            name: '!WOOD',
+            value: 'Holz hacken. ⚡(-10)',
+            inline: true,
+        },
+        {
+            name: '!USE [ITEM]',
+            value: 'Etwas aus dem Inventar essen/trinken ⚡(+10)',
+            inline: true,
+        },
+        ,
+        {
+            name: '!SEARCH',
+            value: 'Umgebung nach etwas Nützlichem suchen. ⚡(-30)',
+            inline: true,
+        },
+        {
+            name: '!REST',
+            value: ' (to-Do) Du bist so zerstört und ruhst dich erstmal aus. \n Braucht Feuer. \n⚡(+100)',
+            inline: true,
+        },
+    ]
 };
 
 const mountainPin = {
-    "title": "On the mountain",
-    "description": "Hier steht die Message für den Mountain",
+    "title": "On top of the mountain.",
+    "description": "Damit die Story weitergeht bitte eine Person tippen (aber nix abschicken).\n"
+                    +"Das Ende naht...",
     "color": 123335,
     "fields": []
 };
